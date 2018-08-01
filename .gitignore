@@ -14,3 +14,4 @@ Build*
 *~
 .ipynb_checkpoints
 Out*
+*.pyc
