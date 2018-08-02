@@ -1,5 +1,8 @@
 
-### This repository will (soon) be populated with SageMath tools to play with Runge--Kutta  methods. ###
+
+### Playing with Rung-Kutta methods and SageMat ###
+
+Beware: this is a very prliminary version!
 
 To use the codes, you must install [SageMath](http://www.sagemath.org/).
 
