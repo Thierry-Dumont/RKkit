@@ -39,7 +39,9 @@ here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](ht
 * First, you must define a Runge--Kutta method. Have a look at one of ".sage"* files. This class must define:
 
   1- The arrays A and B of the Butcher array (the C part is not necessary).
+  
   2- A title
+  
   3- A comment.
 
 Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or QQbar)!
