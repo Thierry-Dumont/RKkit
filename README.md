@@ -54,3 +54,12 @@ Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or
 `> sage -n jupyter`
 
 and lauch the notebook.
+
+## Gaussian formulae ##
+
+Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials, shifted from [-1,1] to [0,1].
+
+RKcolloc.colloc computes the Butcher arrays (A and B parts);
+
+See the notebook _Gaussian.ipynb._
+
