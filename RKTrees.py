@@ -23,7 +23,7 @@ class  RKTrees(SageObject):
         for i in range(1,n+1):
             self.expand(i)
     def expand(self,l):
-        #
+        # extend dtrees.
         for i in range(1,l+1):
             if not i in self.dtrees:
                 self.dtrees[i] = RTS(i).list()
