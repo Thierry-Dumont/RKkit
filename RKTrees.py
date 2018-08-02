@@ -72,6 +72,8 @@ class  RKTrees(SageObject):
             s.exactify()
             return s == 1
         else:
+            for i in range(len(self.dtrees)+1,order+1):
+                self.expand(i)
             for t in self.dtrees[order]:
                 tc = t.canonical_labelling()
                 ok = self.check_tree_order(A,B,tc)
