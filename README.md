@@ -1,6 +1,6 @@
 
 
-### Playing with Rung-Kutta methods and SageMat ###
+### Playing with Rung-Kutta methods and SageMath ###
 
 Beware: this is a very prliminary version!
 
