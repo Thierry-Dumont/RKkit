@@ -352,7 +352,6 @@ class  RKformula(SageObject):
                         M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
                 ret = M.is_zero()
             self.properties["conserve_quadratic_invariants"] = ret
-            if not ret: print M
             return ret
     def check_order_using_rooted_trees(self,order):
         """
@@ -372,7 +371,6 @@ class  RKformula(SageObject):
         o = 1
         while self.check_order_using_rooted_trees(o):
             o+= 1
-            print o
         return o-1
     
     def star_function(self,x,y):

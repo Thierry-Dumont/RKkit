@@ -31,4 +31,9 @@ with Sage_ (which now is available in French, English and German), and
 for which freely available pdf files are [downloadable 
 here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
 
-### Using the code ###
+ <p align="center">
+ ###Using the code###
+
+</p>
+
+* First, you must de fine a Runge--Kutta method. Have a look at one of ".sage"* files.
