@@ -266,17 +266,17 @@ class  RKformula(SageObject):
                         lt1 = len([x for x in signes if x >=0]) == 0
             self.properties["is_module_of_stability_function_less_than_1"] = lt1
             return lt1
-    def is_astable(self):
+    def is_A_stable(self):
         """
-        Do we have an A-stable method ?
+        Do we have an A_stable method ?
         """
-        if "is_astable" in self.properties:
-            return self.properties["is_astable"]
+        if "is_A_stable" in self.properties:
+            return self.properties["is_A_stable"]
         else:
             ret = (self.is_module_of_stability_function_constant_on_Im() or \
                     self.is_module_of_stability_function_less_than_1()) and  \
                     self.real_part_of_poles_all_positive()[0]
-            self.properties["is_astable"] = ret
+            self.properties["is_A_stable"] = ret
             return ret
     def is_stiffly_accurate(self):
         """
@@ -289,24 +289,24 @@ class  RKformula(SageObject):
             A = self.A
             B = self.B
             s1 = self.s-1
-            Ls =  self.is_astable() and \
+            Ls =  self.is_A_stable() and \
                 (len([1 for j in range(0,self.s) if A[s1,j] != B[j]]) == 0 or \
                  len([1 for i in range(0,self.s) if A[i,0] != B[0]])  == 0)
             self.properties["is_stiffly_accurate"] = Ls
             return Ls
-    def is_lstable(self):
+    def is_L_stable(self):
         """
-        Do we have a L-stable method ?
+        Do we have a L_stable method ?
         """
-        if "is_lstable" in self.properties:
-            return self.properties["is_lstable"]
+        if "is_L_stable" in self.properties:
+            return self.properties["is_L_stable"]
         else:
             R=self.stability_function()
             if R.denominator().degree() > R.numerator().degree():
                 ok = True
             elif  R.denominator().degree() <= R.numerator().degree():
                 ok = False
-            self.properties["is_lstable"] = ok
+            self.properties["is_L_stable"] = ok
             return ok
     def is_algebraically_stable(self):
         """
