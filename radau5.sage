@@ -1,8 +1,7 @@
 class Radau5:
-    s=3#nb stages.
     title="Radau5 (IIA) method"
     comment= title
-    A=matrix(AA,s,s)
+    A=matrix(AA,3,3)
     s6=AA(sqrt(6))
     A[0,0]=1/9
     A[0,1]=(-1-s6)/18

@@ -25,7 +25,7 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
                           max([abs(s[0].n().imag()) for s in RDroots]))
 
          
-            if RKf.is_astable():
+            if RKf.is_A_stable():
                 Lm = 0
                 Lp = 2*L
             else:

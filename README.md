@@ -31,9 +31,21 @@ with Sage_ (which now is available in French, English and German), and
 for which freely available pdf files are [downloadable 
 here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
 
- <p align="center">
- ###Using the code###
 
-</p>
+ # Using the code #
 
-* First, you must de fine a Runge--Kutta method. Have a look at one of ".sage"* files.
+
+
+* First, you must de fine a Runge--Kutta method. Have a look at one of ".sage"* files. This class must define:
+
+  1- The arrays A and B of the Butcher array (the C part is not necessary).
+  2- A title
+  3- A comment.
+
+Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or QQbar)!
+
+* Then the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this
+
+`> sage -n jupyter`
+
+and lauch the notebook.

@@ -1,10 +1,9 @@
 class SDIRK5:
     title="SDIRKmethod, order 5"
     comment="See Hairer and Wanner II, page 100"
-    s=5
     A=matrix(AA,5,5)
     gamm=1/4
-    for i in range(s):
+    for i in range(5):
         A[i,i]=gamm
     A[1,0]=1/2
     A[2,0]=17/50

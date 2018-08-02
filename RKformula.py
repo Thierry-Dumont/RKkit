@@ -269,6 +269,8 @@ class  RKformula(SageObject):
     def is_A_stable(self):
         """
         Do we have an A_stable method ?
+
+        See: HW II , second edition, page 43.
         """
         if "is_A_stable" in self.properties:
             return self.properties["is_A_stable"]
@@ -301,11 +303,14 @@ class  RKformula(SageObject):
         if "is_L_stable" in self.properties:
             return self.properties["is_L_stable"]
         else:
-            R=self.stability_function()
-            if R.denominator().degree() > R.numerator().degree():
-                ok = True
-            elif  R.denominator().degree() <= R.numerator().degree():
-                ok = False
+            if not self.is_A_stable():
+                ok= False
+            else:
+                R=self.stability_function()
+                if R.denominator().degree() > R.numerator().degree():
+                    ok = True
+                elif  R.denominator().degree() <= R.numerator().degree():
+                    ok = False
             self.properties["is_L_stable"] = ok
             return ok
     def is_algebraically_stable(self):
