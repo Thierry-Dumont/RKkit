@@ -9,9 +9,9 @@ We use the possibily given by SageMath to make exact computations in interesting
 
 To compute the order of a Runge-Kutta method, one must use the so called _rooted_ _trees_ and SageMath provides an implementation of them, done by Florent Hivert, which we use here.
 
-We also pride a function to compute the Butcher array of a method defined by collocation points.
+We also provide a function to compute the Butcher array of a method defined by collocation points.
 
-I also hope to implement the B-series.
+I also hope to implement the B-series in the future.
 
 
 #### References: ####
