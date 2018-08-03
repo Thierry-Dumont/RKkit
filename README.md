@@ -39,7 +39,9 @@ here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](ht
 
 
 
-* First, you must define a Runge--Kutta method. Have a look at one of ".sage" files. This class must define:
+* First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of ".sage" files. 
+
+This class must define:
 
   1- The arrays A and B of the Butcher array (the C part is not necessary).
   
