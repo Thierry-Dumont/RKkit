@@ -28,6 +28,9 @@ class RootsException(Exception):
         return "for "+str(self.pol)+" (degree= "+str(self.degree)+" ), only " \
             +str(self.ncomp)+" where computed."
 class GraphicProblem(Exception):
+    r"""
+    Exception raised when an error happens in a graphic.
+    """
     def __init__(self,t):
         self.t = t
     def __str__(self):

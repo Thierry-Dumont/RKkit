@@ -15,19 +15,26 @@ class  RKTrees(SageObject):
 
     sage: R= RKTrees(n)
 
-    n is the maximum depth of the rooted trees you will use. 
+    n is the maximum depth of the rooted trees you will use (the
+    build list will be enlarged if necessary).
     """
-    def __init__(self,n):
+    def __init__(self,n=1):
         self.n = n
         self.dtrees = {}
         for i in range(1,n+1):
             self.expand(i)
     def expand(self,l):
-        # extend dtrees.
+        r"""
+        Extend the list of rooted trees to depth l]
+        """
         for i in range(1,l+1):
             if not i in self.dtrees:
                 self.dtrees[i] = RTS(i).list()
+        self.n=l
     def gamma(self,t):
+        r"""
+        The gamma coefficient (see referenced books).
+        """
         tn = t.node_number()
         if tn == 1:
             return 1

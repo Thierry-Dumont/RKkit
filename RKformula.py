@@ -380,7 +380,8 @@ class  RKformula(SageObject):
     
     def star_function(self,x,y):
         """
-        Compute the star function.
+        Compute the star function. This is for drawing the "star" associated
+        to the formula.
         """
         Rs = self.stability_function()
         s = Rs(x+QQbar(I)*y)/exp(x+I*y)
