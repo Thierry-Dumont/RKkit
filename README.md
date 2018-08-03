@@ -53,7 +53,7 @@ Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or
 
 `> sage -n jupyter`
 
-and lauch the notebook.
+and launch the notebook _Exemple1.ipynb_.
 
 ## Gaussian formulae ##
 
