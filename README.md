@@ -8,7 +8,7 @@ To use the codes, you must install [SageMath](http://www.sagemath.org/).
 
 The goal of these programs is too verify the different properties of a given Runge--Kutta method, defined by it's Butcher array (all the names used here are defined in the _bible_, see below).
 
-We use the possibily given by SageMath to make exact computations in interesting sets of numbers, and we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath). Thus, the result obtained are  *proofs* (if my codes are correct!).
+We use the possibily given by SageMath to make exact computations in interesting sets of numbers, and we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath). Thus, the result obtained are  *proofs* (if my codes and SageMath are correct!).
 
 To compute the order of a Runge-Kutta method, one must use the so called _rooted_ _trees_ and SageMath provides an implementation of them, done by Florent Hivert, which we use here.
 
