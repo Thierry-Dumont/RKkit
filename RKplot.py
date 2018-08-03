@@ -15,7 +15,8 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     RDroots = RKf.poles_of_stability_function()
     if RKf.is_explicit() or  RDroots == [] :
         if limits==[]:
-            raise GraphicProblem("Cannot find limits. You must define: limits = [(x1,y1),(x2,y2)]")
+            raise GraphicProblem(
+                "Cannot find limits. You must define: limits = [(x1,y1),(x2,y2)]")
         else:
             L1 = limits[0]
             L2 = limits[1]
