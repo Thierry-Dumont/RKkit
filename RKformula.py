@@ -333,10 +333,9 @@ class  RKformula(SageObject):
                     for j in range(0,s):
                         if B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]<0:
                           As=False
-                          print i,j,B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
-                        if not As:
+                          if not As:
                             break
-            
+                    if not As: break
             self.properties["is_algebraically_stable"] = As
             return As
     def conserve_quadratic_invariants(self):
