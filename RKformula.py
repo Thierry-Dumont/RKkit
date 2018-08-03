@@ -23,6 +23,7 @@ from sage.functions.other import conjugate
 from sage.functions.generalized import sign
 from sage.calculus.functional import derivative
 from sage.misc.cachefunc import cached_function
+from sage.rings.infinity import minus_infinity
 
 from RKTrees import *
 #
@@ -369,6 +370,21 @@ class  RKformula(SageObject):
             if not t:
                 break
         return t
+    def stability_on_real_negative_axis(self):
+        r"""
+        In the case where the method is not A-stable, find the limit
+        of stability on the real negative axis.
+        """
+        if self.is_A_stable():
+            return minus_infinity
+        else:
+            p=generic_power(self.stability_function(),2)-1
+            r=[s[0] for s in sorted(p.numerator().roots(),reverse=True)
+               if s[0]<0]
+            if len(r)==0:
+                return minus_infinity
+            else:
+                return r[0]
     def order_using_rooted_trees(self):
         """
         Compute the order of the method using rooted trees.
