@@ -39,7 +39,7 @@ here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](ht
 
 
 
-* First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of ".sage" files. 
+* First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of "*.sage" files. 
 
 This class must define:
 

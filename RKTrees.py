@@ -33,7 +33,7 @@ class  RKTrees(SageObject):
         self.n=l
     def gamma(self,t):
         r"""
-        The gamma coefficient (see referenced books).
+        The gamma coefficient (see HW referenced books).
         """
         tn = t.node_number()
         if tn == 1:
