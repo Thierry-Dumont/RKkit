@@ -2,7 +2,7 @@
 
 # Playing with Runge-Kutta methods and SageMath. #
 
-_Beware: this is a very prliminary version!_
+_Beware: this is a very preliminary version!_
 
 To use the codes, you must install [SageMath](http://www.sagemath.org/).
 
