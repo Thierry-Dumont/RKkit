@@ -8,14 +8,15 @@ To use the codes, you must install [SageMath](http://www.sagemath.org/).
 
 The goal of these programs is too verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the names used here are defined in the _Bible_, see below).
 
-We use the possibily given by SageMath to make exact computations in interesting sets of numbers, and thus we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath). Thus, the result obtained are  *proofs* (if my codes and SageMath are correct!).
+* With SageMath, it is possible  to make *exact* computations in interesting sets of numbers, and thus we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath), which is not really restrictive. Thus, the result obtained are  *proofs* (if my codes and SageMath are both correct!).
 
-To compute the order of a Runge-Kutta method, one must use the so called _rooted_ _trees_ and SageMath provides an implementation of them, done by Florent Hivert, which we use here.
+* To compute the order of a Runge-Kutta method, one must use the so called _rooted_ _trees_ and SageMath provides an implementation of them, done by Florent Hivert, which we use here.
 
-We also provide a function to compute the Butcher array of a method defined by collocation points.
+We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
 
 I also hope to implement the B-series in the future.
 
+Two sage jupyter notebooks are provided: they probably provide  the best way to test this code.
 
 #### References: ####
 
