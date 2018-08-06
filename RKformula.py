@@ -9,6 +9,7 @@ AUTHOR:
 """
 
 from __future__ import absolute_import
+from __future__ import print_function
 
 from sage.structure.sage_object import SageObject
 from sage.structure.element import generic_power
@@ -99,7 +100,7 @@ class  RKformula(SageObject):
             II = identity_matrix(Rng,self.s)
             D = II-z*self.A
             N = D+z*K
-            sf =  N.determinant()/D.determinant()
+            sf = N.determinant()/D.determinant()
             self.properties["Stability_Function"] = sf
             return sf
     def A_is_invertible(self):
@@ -462,5 +463,5 @@ class  RKformula(SageObject):
             return "None"
     def print_known_properties(self):
         for key in self.properties:
-            print  "-> ",key,":\n", self.properties[key],"\n"
+            print("-> ",key,":\n", self.properties[key],"\n")
         

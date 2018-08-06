@@ -42,3 +42,4 @@ def roots_checked(pol,Q):
     rac = q.roots()
     n = sum([s[1] for s in rac])
     return rac,pol.degree()== n, n
+

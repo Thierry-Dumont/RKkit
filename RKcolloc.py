@@ -37,7 +37,12 @@ def colloc(c,P):
     prims0 = [p(x = 0) for p in prims]
     A = matrix(Pb,[ [prims[j](x = c[i])-prims0[j] for j in range(0,n)] \
                   for i in range(0,n)])
-
+    
     B = [prims[j](x = 1) - prims0[j] for j in range(0,n)]
+    # exactify to improve lisibility!
+    for i in range(0,n):
+        for j in range(0,n):
+            A[i,j].exactify()
+        B[i].exactify()
     return A,B
 
