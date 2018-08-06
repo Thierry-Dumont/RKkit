@@ -72,7 +72,7 @@ class  RKformula(SageObject):
         #self.R = PolynomialRing(self.D, 'z')
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
-        # 
+        # a dictionary to store already computed properties.
         self.properties = {}
     def n_stages(self):
         """
@@ -157,6 +157,8 @@ class  RKformula(SageObject):
     def real_part_of_poles_all_positive(self):
         """
         Documentation is in the name of this method!
+
+        Returns: (all poles have >=0 real part?) and number of poles==0.
         """
         if "real_part_of_poles_all_positive" in self.properties:
             llp = self.properties["real_part_of_poles_all_positive"][0]
@@ -374,33 +376,72 @@ class  RKformula(SageObject):
         In the case where the method is not A-stable, find the limit
         of stability on the real negative axis.
         """
-        if self.is_A_stable():
-            return minus_infinity
+        if "stability_on_real_negative_axis" in self.properties:
+            return self.properties["stability_on_real_negative_axis"]
         else:
-            p=generic_power(self.stability_function(),2)-1
-            r=[s[0] for s in sorted(p.numerator().roots(),reverse=True)
-               if s[0]<0]
-            if len(r)==0:
-                return minus_infinity
+            if self.is_A_stable():
+                ret=minus_infinity
             else:
-                return r[0]
+                p=generic_power(self.stability_function(),2)-1
+                r=[s[0] for s in sorted(p.numerator().roots(),reverse=True)
+                   if s[0]<0]
+                if len(r)==0:
+                    ret= minus_infinity
+                else:
+                    ret=r[0]
+            self.properties["stability_on_real_negative_axis"]=ret
+            return ret
     def order_using_rooted_trees(self):
         """
         Compute the order of the method using rooted trees.
         """
-        o = 1
-        while self.check_order_using_rooted_trees(o):
-            o+= 1
-        return o-1
+        if "order_using_rooted_trees" in self.properties:
+            return self.properties["order_using_rooted_trees"]
+        else:
+            o = 1
+            while self.check_order_using_rooted_trees(o):
+                o+= 1
+            self.properties["order_using_rooted_trees"]=o-1
+            return o-1
     
     def star_function(self,x,y):
         """
         Compute the star function. This is for drawing the "star" associated
         to the formula.
         """
-        Rs = self.stability_function()
-        s = Rs(x+QQbar(I)*y)/exp(x+I*y)
-        return s*conjugate(s)
+        if "star_function" in self.properties:
+            return self.properties["star_function"]
+        else:
+            Rs = self.stability_function()
+            s = Rs(x+QQbar(I)*y)/exp(x+I*y)
+            star=s*conjugate(s)
+            self.properties["star_function"]=star
+            return star
+    def compute_all_properties(self):
+        """
+        Compute all possible properties of the formula.
+        """
+        self.A_is_invertible()
+        self.is_explicit()
+        self.stability_function()
+        self.poles_of_stability_function()
+        self.real_part_of_poles_all_positive()
+        self.order_of_stability_function()
+        self.stability_function_on_im_axis()
+        self.squared_module_of_stability_function_on_Im()
+        self.is_module_of_stability_function_constant_on_Im()
+        self.is_module_of_stability_function_less_than_1()
+        self.is_A_stable()
+        self.is_stiffly_accurate()
+        self.is_L_stable()
+        self.is_algebraically_stable()
+        self.conserve_quadratic_invariants()
+        self.stability_on_real_negative_axis()
+        self.stability_on_real_negative_axis()
+        self.order_using_rooted_trees()
+        x,y=SR.var("x,y")
+        self.star_function(x,y)
+
     def forget_properties(self):
         """
         Forget all what we already computed.
@@ -421,5 +462,5 @@ class  RKformula(SageObject):
             return "None"
     def print_known_properties(self):
         for key in self.properties:
-            print key,":", self.properties[key],"\n"
+            print  "-> ",key,":\n", self.properties[key],"\n"
         
