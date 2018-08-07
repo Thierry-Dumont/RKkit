@@ -5,13 +5,15 @@ from sage.functions.other import conjugate
 from sage.plot.contour_plot import *
 from sage.plot.point import *
 from RKExceptions import GraphicProblem
-from exceptions import AttributeError
+
 def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
         return s*conjugate(s)
     def sfStar(x,y,F):
         return F.star_function(x,y)
+    #sfStar = lambda x,y:  F.star_function(x,y)
+    #sf1 =  lambda x,y:  P(x+QQbar(I)*y)
     RDroots = RKf.poles_of_stability_function()
     if RKf.is_explicit() or  RDroots == [] :
         if limits==[]:

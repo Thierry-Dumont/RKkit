@@ -440,8 +440,8 @@ class  RKformula(SageObject):
         self.stability_on_real_negative_axis()
         self.stability_on_real_negative_axis()
         self.order_using_rooted_trees()
-        x,y=SR.var("x,y")
-        self.star_function(x,y)
+        #x,y=SR.var("x,y")
+        #self.star_function(x,y)
 
     def forget_properties(self):
         """
