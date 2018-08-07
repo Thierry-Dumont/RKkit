@@ -52,9 +52,9 @@ This class must define:
 
 Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or QQbar)!
 
-* Then the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this
+* Then the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
 
-`> sage -n jupyter`
+`>sage -n jupyter`
 
 and launch the notebook _Exemple1.ipynb_.
 
@@ -66,3 +66,15 @@ RKcolloc.colloc computes the Butcher arrays (A and B parts);
 
 See the notebook _Gaussian.ipynb._
 
+### Notebooks ###
+
+All are Sage / Jupyter notebooks. Launche Sage by typing:
+
+`sage -n jupyter`
+
+
+1. _Example.ipynb_ :  a tour of the system.
+
+2. _Gaussian.ipynb_:  construct and test the Gauss methods.
+
+3. _All properties.ipynb_: show how to compute all possible prperties of a method.
