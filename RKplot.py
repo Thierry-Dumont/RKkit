@@ -10,10 +10,7 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
         return s*conjugate(s)
-    # def sfStar(x,y,F):
-    #     return F.star_function(x,y)
-    #sfStar = lambda x,y:  F.star_function(x,y)
-    #sf1 =  lambda x,y:  P(x+QQbar(I)*y)
+
     RDroots = RKf.poles_of_stability_function
     if RKf.is_explicit or  RDroots == [] :
         if limits==[]:
@@ -43,9 +40,7 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     if type ==   "stab":
         sf=lambda x,y: sf1(x,y,RKf.stability_function)
     elif type == "star":
-        #sf =  lambda x,y: sfStar(x,y,RKf)
-        #sf=  RKf.star_function
-        sf=lambda x,y: RKf.star_function(x=x,y=y)
+         sf=lambda x,y: RKf.order_star_function(x=x,y=y)
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
     if ncurves == 1:
