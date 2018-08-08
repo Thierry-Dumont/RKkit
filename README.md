@@ -89,7 +89,7 @@ See the notebook _Gaussian.ipynb._
 
 ### Notebooks ###
 
-All are Sage / Jupyter notebooks. Launche Sage by typing:
+All are Sage / Jupyter notebooks. Launch Sage by typing:
 
 `sage -n jupyter`
 
