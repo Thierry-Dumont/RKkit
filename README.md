@@ -60,11 +60,11 @@ and launch the notebook _Exemple1.ipynb_.
 
 #### Some cautions: ####
 
-*  The code uses Sage's [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator; this allow to compute
-formula's property only _once_ (as it can be very expensive).
+*  The code uses Sage's [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator; this allow to compute each
+property only _once_ (as it can be very expensive).
 
 This can be a bit disturbing:
- you must *not* do
+ you must *not* do:
 
 `sage: F.is_A_stable()` 
 
