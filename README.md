@@ -64,15 +64,15 @@ and launch the notebook _Exemple1.ipynb_.
 formula's property only _once_ (as it can be very expensive).
 
 This can be a bit disturbing:
- you must not do
+ you must *not* do
 
 `sage: F.is_A_stable()` 
 
 but:
 
-`sage: F.is_A_stable`.
+`sage: F.is_A_stable`
 
-as, with the @lazy_attribute decorator, refering to an attribute triggers the corresponding method ([see here](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html).
+as, with the @lazy_attribute decorator, refering to an attribute triggers the corresponding method ([see here](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)).
 
 _Hint:_ if it does not work with brackets, try without, and vice-versa :-) .
 
