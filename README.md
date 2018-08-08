@@ -4,17 +4,17 @@
 
 _Beware: this is a very preliminary version!_
 
-To use the codes, you must install [SageMath](http://www.sagemath.org/).
+To use the code, you must install [SageMath](http://www.sagemath.org/).
 
-The goal of these programs is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
+The goal of this code is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
 
-* With SageMath, it is possible  to make *exact* computations in somme usefull sets of numbers, and thus we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath), which is not a really restrictive hypothesis. Thus, the result obtained are  *proofs* (if my codes and SageMath are both correct!).
+* With SageMath, it is possible  to make *exact* computations in somme usefull sets of numbers, and thus we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath); this is not a really restrictive hypothesis. But then, the result obtained are  *proofs* (if my codes and SageMath are both correct!).
 
 * To compute the order of a Runge-Kutta method, one must use the so called _rooted_ _trees_ for which we have a SageMath implementation, coded by [Florent Hivert](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/rooted_tree.html).
 
-We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
+* We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
 
-I also hope to implement the B-series in the future.
+I also hope to implement  B-series in the future.
 
 Some sage/jupyter notebooks are provided: they probably provide  the best way to test this code.
 
@@ -23,17 +23,16 @@ Some sage/jupyter notebooks are provided: they probably provide  the best way to
 To learn about Ordinary Differential Equations solvers, you should read the
 _Bible_:
 
-*    Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner,
+*    Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
 *    Solving Ordinary Differential Equations II Stiff and Differential-Algebraic
-    Problems by Hairer and Wanner,
-*    Geometric Numerical Integration by Hairer, Lubich and Wanner.
+    Problems by Hairer and Wanner 5HW),
+*    Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
 
 
 ##### Note: ####
 If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
-for which freely available pdf files are [downloadable 
-here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
+for which freely available pdf files can be [download](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
 
 
  # Using the code #
@@ -58,11 +57,11 @@ and launch the notebook _Exemple1.ipynb_.
 
 #### Some cautions: ####
 
-*  The code uses Sage's [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator; this allow to compute each
-property only _once_ (as it can be very expensive).
+*  The code uses Sage's [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator; this allow to compute _each_
+_property_ _only_ _once_ (as computations  can be very expensive).
 
 This can be a bit disturbing:
- you must *not* do:
+ you must *not* write:
 
 `sage: F.is_A_stable()` 
 
