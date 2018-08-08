@@ -4,7 +4,7 @@ Explore properties of Runge-Kutta methods.
 
 AUTHOR:
  
- - Thierry Dumont (2016)
+ - Thierry Dumont (2016, 2018) 
 
 """
 
@@ -16,7 +16,7 @@ from sage.structure.element import generic_power
 from sage.arith.power import generic_power
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.matrix.constructor import matrix,identity_matrix
-from sage.rings.all import (AA,QQbar)
+from sage.rings.all import (AA,QQbar,RDF)
 from sage.symbolic.ring import SR
 from sage.symbolic.constants import I
 from sage.functions.log import exp
@@ -349,15 +349,20 @@ class  RKformula(SageObject):
             o+= 1
         return o-1
     @lazy_attribute
-    def star_function(self,x,y):
+    def star_function(self):
         """
         Compute the star function. This is for drawing the "star" associated
         to the formula.
         """
+        x=SR.var("x")
+        y=SR.var("y")
+        #I=SR(I)
         Rs = self.stability_function
-        s = Rs(x+QQbar(I)*y)/exp(x+I*y)
-        star=s*conjugate(s)
-        self.properties["star_function"]=star
+        RRs=Rs.numerator().change_ring(RDF)/Rs.denominator().change_ring(RDF)
+        # s = Rs(x+QQbar(I)*y)/exp(x+I*y)
+        s=RRs(x+SR(I)*y)/exp(x+SR(I)*y)
+        star=s.abs()
+        # star=s*conjugate(s)
         return star
     def compute_all_properties(self):
         """
@@ -382,7 +387,7 @@ class  RKformula(SageObject):
         self.stability_on_real_negative_axis
         self.order_using_rooted_trees
         #x,y=SR.var("x,y")
-        #self.star_function(x,y)        
+        self.star_function
     def print_all_known_properties(self):
         donot=["A","B","C","D","R","s","RTrees"]
         D=self.__dict__

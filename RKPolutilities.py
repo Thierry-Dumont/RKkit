@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import 
 from sage.structure.sage_object import SageObject
-#from sage.structure.element import generic_power
 from sage.arith.power  import generic_power
 from sage.rings.all import (QQ,AA,QQbar)
 from sage.symbolic.ring import SR
@@ -35,8 +34,8 @@ def realpart(P):
                 if Pc[p].imag() == 0])
 def roots_checked(pol,Q):
     r"""
-    Check that, computing in the ring Q, we have all the roots for
-    the polynomial pol.
+    Check that, computing in the ring Q, we have n roots (with their
+    multiplicity) for a  polynomial pol of degree n.
     """
     q = pol.change_ring(Q)
     rac = q.roots()

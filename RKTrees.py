@@ -25,7 +25,7 @@ class  RKTrees(SageObject):
             self.expand(i)
     def expand(self,l):
         r"""
-        Extend the list of rooted trees to depth l]
+        Extend the list of rooted trees up to depth l]
         """
         for i in range(1,l+1):
             if not i in self.dtrees:
@@ -67,9 +67,8 @@ class  RKTrees(SageObject):
         return s*self.gamma(rt) == 1
     def check_order(self,A,B,order):
         """
-        This is what the user will call to verify the order of a Runge-Kutta
-        formula given by (A,B). Actually, this is just a proof that the 
-        rooted trees of order 'order' fullfill the requirements.
+        Proove that the rooted trees of order 'order' fullfill 
+        the requirements.
 
         To check if a Runge-Kutta formula as order 'n', one must call 
         check_order(A,B,i) for i in range(1,n+1).

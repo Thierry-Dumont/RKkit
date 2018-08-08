@@ -10,12 +10,12 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
         return s*conjugate(s)
-    def sfStar(x,y,F):
-        return F.star_function(x,y)
+    # def sfStar(x,y,F):
+    #     return F.star_function(x,y)
     #sfStar = lambda x,y:  F.star_function(x,y)
     #sf1 =  lambda x,y:  P(x+QQbar(I)*y)
-    RDroots = RKf.poles_of_stability_function()
-    if RKf.is_explicit() or  RDroots == [] :
+    RDroots = RKf.poles_of_stability_function
+    if RKf.is_explicit or  RDroots == [] :
         if limits==[]:
             raise GraphicProblem(
                 "Cannot find limits. You must define: limits = [(x1,y1),(x2,y2)]")
@@ -28,7 +28,7 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
                           max([abs(s[0].n().imag()) for s in RDroots]))
 
          
-            if RKf.is_A_stable():
+            if RKf.is_A_stable:
                 Lm = 0
                 Lp = 2*L
             else:
@@ -41,9 +41,11 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
         L1 = limits[0]
         L2 = limits[1]
     if type ==   "stab":
-        sf=lambda x,y: sf1(x,y,RKf.stability_function())
+        sf=lambda x,y: sf1(x,y,RKf.stability_function)
     elif type == "star":
-        sf =  lambda x,y: sfStar(x,y,RKf)
+        #sf =  lambda x,y: sfStar(x,y,RKf)
+        #sf=  RKf.star_function
+        sf=lambda x,y: RKf.star_function(x=x,y=y)
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
     if ncurves == 1:
@@ -59,13 +61,15 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
         stitle =  "Stability domain for "+title
     else:
         stitle = ""
+    x=SR.var("x")
+    y=SR.var("y")
     if withCmap:
-        c = contour_plot(sf,L1,L2,fill=fill, \
-                       contours=contrs,cmap=[(0,1,0),(1,0,0)], \
-                       labels=True,title=stitle)
+        c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),contours=[-1,0,1],
+                         labels=True,fill=fill, label_inline=True,       )
+                       
     else:
-        c = contour_plot(sf,L1,L2,fill=fill, \
-                       contours=contrs, \
-                       labels=True,title=stitle)
+        c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]), \
+                         contours=[-1,0,1],labels=True,label_inline=True,)
+                       
     return c
 

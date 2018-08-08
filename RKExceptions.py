@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from sage.structure.sage_object import SageObject
 class DimensionsAreIncompatible(SageObject,Exception):
     r"""
-    Exception raised when the dimensions of A , B  and C
+    Exception raised when the sizes of A , B  and C
     in a Runge-Kutta are not equal. 
     """
     def __init__(self,A,B,C):
@@ -17,7 +17,7 @@ class DimensionsAreIncompatible(SageObject,Exception):
 class RootsException(Exception):
     r"""
     Exception raised when the roots of a given polynomial
-    could not be all computed.
+    could not be *all* computed.
     (We generally compute in QQbar, and we can meet Evariste Gallois). 
     """
     def __init__(self,ncomp,pol):
