@@ -58,6 +58,23 @@ Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or
 
 and launch the notebook _Exemple1.ipynb_.
 
+#### Some cautions: ####
+
+*  The code uses Sage's [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator; this allow to compute
+formula's property only _once_ (as it can be very expensive).
+
+This can be a bit disturbing:
+ you must not do
+
+`sage: F.is_A_stable()` 
+
+but:
+
+`sage: F.is_A_stable`.
+
+_Hint:_ if it does not work with brackets, try without, and vice-versa :-) .
+
+
 ## Gaussian formulae ##
 
 Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
@@ -65,6 +82,8 @@ Gausian formulae with n steps are obtained by collocation at the roots of the Le
 RKcolloc.colloc computes the Butcher arrays (A and B parts);
 
 See the notebook _Gaussian.ipynb._
+
+
 
 ### Notebooks ###
 
