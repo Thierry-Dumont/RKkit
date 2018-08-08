@@ -16,7 +16,7 @@ We also provide a function to compute the Butcher array of a method defined by c
 
 I also hope to implement the B-series in the future.
 
-Two sage jupyter notebooks are provided: they probably provide  the best way to test this code.
+Some sage/jupyter notebooks are provided: they probably provide  the best way to test this code.
 
 #### References: ####
 
@@ -37,8 +37,6 @@ here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](ht
 
 
  # Using the code #
-
-
 
 * First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of "*.sage" files. 
 
@@ -89,7 +87,7 @@ See the notebook _Gaussian.ipynb._
 
 ### Notebooks ###
 
-All are Sage / Jupyter notebooks. Launch Sage by typing:
+All are Sage/Jupyter notebooks. Launch Sage by typing:
 
 `sage -n jupyter`
 
