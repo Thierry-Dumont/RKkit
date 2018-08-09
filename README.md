@@ -20,7 +20,7 @@ Some sage/jupyter notebooks are provided: they probably provide  the best way to
 
 #### References: ####
 
-To learn about Ordinary Differential Equations solvers, you should read the
+- To learn about Ordinary Differential Equations solvers, you should read the
 _Bible_:
 
 *    Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
@@ -29,8 +29,8 @@ _Bible_:
 *    Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
 
 
-##### Note: ####
-If you want to learn _SageMath_, you can read the book _Mathematical Computation
+
+- If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
 for which freely available pdf files can be [download](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
 
