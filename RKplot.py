@@ -1,3 +1,4 @@
+from __future__ import print_function
 from sage.symbolic.ring import SR
 from sage.symbolic.constants import I
 from sage.rings.all import QQbar
@@ -5,6 +6,7 @@ from sage.functions.other import conjugate
 from sage.plot.contour_plot import *
 from sage.plot.point import *
 from RKExceptions import GraphicProblem
+from sage.rings.infinity import minus_infinity
 
 def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     def sf1(x,y,P):
@@ -12,27 +14,38 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
         return s*conjugate(s)
 
     RDroots = RKf.poles_of_stability_function
-    if RKf.is_explicit or  RDroots == [] :
+    Rstab= RKf.stability_on_real_negative_axis
+
+    if Rstab==minus_infinity and RDroots == [] :
         if limits==[]:
             raise GraphicProblem(
                 "Cannot find limits. You must define: limits = [(x1,y1),(x2,y2)]")
         else:
-            L1 = limits[0]
-            L2 = limits[1]
+            raise GraphicProblem("Mthod is not A_stable and no stab. limit is known")
+            #L1 = limits[0]
+            #L2 = limits[1]
     else:
         if limits == []:
-            L = Enlarge*max(max([abs(s[0].n().real()) for s in RDroots]), \
-                          max([abs(s[0].n().imag()) for s in RDroots]))
-
-         
-            if RKf.is_A_stable:
-                Lm = -L/2
-                Lp = 2*L
+            if len(RDroots)>0:
+                Lr= max(max([abs(s[0].n().real()) for s in RDroots]), \
+                        max([abs(s[0].n().imag()) for s in RDroots]))
+            else:
+                Lr=0
+                
+            if Rstab != minus_infinity:
+                L=max(-Rstab,Lr)
+                Lm= -L*Enlarge
+                Lp= -Lm
+            elif RKf.is_A_stable:
+                L= Lr
+                Lm = -Enlarge*L
+                Lp = 3*Enlarge*L/2
             else:
                 Lm=-L
                 Lp = L
+            
             L1 = (Lm,Lp)
-            L2 = (-L,L)
+            L2 = (-Enlarge*L,Enlarge*L)
         #
     if limits != []:
         L1 = limits[0]
