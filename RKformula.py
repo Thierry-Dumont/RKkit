@@ -311,6 +311,18 @@ class  RKformula(SageObject):
             #return As
             M=self.M_matrix
             return all(s>=0 for s in M.list())
+    @lazy_attribute
+    def is_Symetric(self):
+        """
+        All is in the title.
+        """
+        P=matrix(AA,self.s,self.s)
+        for i in range(0,self.s):
+            P[i,self.s-i-1]=1
+        PA=P*self.A+ self.A*P
+        return all(self.B==Row.list() for Row in PA.rows()) and \
+            self.B == P*self.B
+
     @lazy_attribute    
     def conserve_quadratic_invariants(self):
         """
@@ -396,6 +408,7 @@ class  RKformula(SageObject):
         self.is_stiffly_accurate
         self.is_L_stable
         self.is_algebraically_stable
+        self.is_Symetric
         self.conserve_quadratic_invariants
         self.stability_on_real_negative_axis
         self.stability_on_real_negative_axis
