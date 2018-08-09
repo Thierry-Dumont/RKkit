@@ -20,7 +20,7 @@ Some sage/jupyter notebooks are provided: they probably provide  the best way to
 
 #### References: ####
 
-*To learn about Ordinary Differential Equations solvers, you should read the
+* To learn about Ordinary Differential Equations solvers, you should read the
 _Bible_:
 
 1.    Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
