@@ -312,7 +312,7 @@ class  RKformula(SageObject):
             M=self.M_matrix
             return all(s>=0 for s in M.list())
     @lazy_attribute
-    def is_Symetric(self):
+    def is_Symmetric(self):
         """
         All is in the title.
         """
