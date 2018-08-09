@@ -26,7 +26,7 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
 
          
             if RKf.is_A_stable:
-                Lm = 0
+                Lm = -L/2
                 Lp = 2*L
             else:
                 Lm=-L
@@ -59,12 +59,14 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
     x=SR.var("x")
     y=SR.var("y")
     if withCmap:
-        c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),contours=[-1,0,1],
-                         labels=True,fill=fill, label_inline=True,       )
+        c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
+                         contours=[-1,-0.5,0,1],
+                         labels=True,fill=fill, label_inline=True,axes=True,colorbar=True)
                        
     else:
         c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]), \
-                         contours=[-1,0,1],labels=True,label_inline=True,)
+                         contours=[-1,0,1],labels=True,label_inline=True,
+                         axes=True,fill=fill,colorbar=True)
                        
     return c
 

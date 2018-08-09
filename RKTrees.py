@@ -63,7 +63,6 @@ class  RKTrees(SageObject):
         f=self.tree_to_order_formula(rt)
         #
         s =  sum([self.eval_sum_prod(A,B,f,v) for v in S])
-        #s.exactify()
         return s*self.gamma(rt) == 1
     def check_order(self,A,B,order):
         """
@@ -75,7 +74,7 @@ class  RKTrees(SageObject):
         """
         if order == 1:
             s = sum(B)
-            s.exactify()
+            s.exactify()#should make sometime more readable results, may be.
             return s == 1
         else:
             for i in range(len(self.dtrees)+1,order+1):

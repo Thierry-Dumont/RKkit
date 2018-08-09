@@ -34,7 +34,7 @@ from RKPolutilities import *
 #
 class  RKformula(SageObject):
     r"""
-    Store coefficients of a Runge-Kutta method, compute and store its
+    Store coefficients of a Runge-Kutta method, compute some of its
     properties.
 
     EXAMPLES::
@@ -53,12 +53,16 @@ class  RKformula(SageObject):
         sage: F = RKformula(A,B)
         """
         # All elements of the formula must live in an exact ring:
-        assert A.base_ring().is_exact(), \
+
+        assert all(s.parent().is_exact() for s in A.list()), \
             "Base ring of A must be exact (like QQ, AA, QQbar,...)"
-        assert prod([b.parent().is_exact() for b in B]), \
+               
+        assert all(b.parent().is_exact() for b in B), \
             "Base ring of B elements must be exact (like QQ, AA, QQbar,...)"
-        assert prod([c.parent().is_exact() for c in C]), \
+               
+        assert all(c.parent().is_exact() for c in C), \
             "Base ring of C elements must be exact (like QQ, AA, QQbar,...)"
+        
         self.s = A.dimensions()[0]
         # test A,B, C dimensions compatibility:
         if  self.s !=  A.dimensions()[1] or self.s != len(B):
@@ -69,9 +73,7 @@ class  RKformula(SageObject):
         self.A = A.change_ring(AA)
         self.B = [ AA(b) for b in B]
         self.C = [ AA(c) for c in C]
-        #self.D = A.parent().base()
         self.D = AA
-        #self.R = PolynomialRing(self.D, 'z')
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
 
@@ -98,8 +100,8 @@ class  RKformula(SageObject):
         II = identity_matrix(Rng,self.s)
         D = II-z*self.A
         N = D+z*K
-        sf = N.determinant()/D.determinant()
-        return sf
+        return N.determinant()/D.determinant()
+
     @lazy_attribute    
     def A_is_invertible(self):
         """
@@ -150,9 +152,11 @@ class  RKformula(SageObject):
         """
 
         Poles = self.poles_of_stability_function
-        llp = len([s for s in Poles if s[0].real()<0 ])
+        #llp = len([s for s in Poles if s[0].real()<0 ])
+        llp=all(s[0].real()>=0 for s in Poles)
         llzero = len([s for s in Poles if s[0].real()==0 ])
-        return llp==0,llzero
+        #return llp==0,llzero
+        return llp,llzero
     @lazy_attribute
     def order_of_stability_function(self):
         """
@@ -255,10 +259,10 @@ class  RKformula(SageObject):
         A = self.A
         B = self.B
         s1 = self.s-1
-        Ls =  self.is_A_stable and \
+        return  self.is_A_stable and \
               (len([1 for j in range(0,self.s) if A[s1,j] != B[j]]) == 0 or \
                len([1 for i in range(0,self.s) if A[i,0] != B[0]])  == 0)
-        return Ls
+ 
     @lazy_attribute
     def is_L_stable(self):
         """
@@ -270,43 +274,60 @@ class  RKformula(SageObject):
             R=self.stability_function
             return R.denominator().degree() > R.numerator().degree()
 
+    @lazy_attribute
+    def M_matrix(self):
+        """
+        Compute the matrix M used by is_algebraically_stable(self) and
+        conserve_quadratic_invariants(self).
+        """
+        B=self.B
+        A=self.A
+        M = matrix(QQbar,self.s,self.s)
+        for i in range(0,self.s):
+            for j in range(0,self.s):
+                M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
+        return M
     @lazy_attribute    
     def is_algebraically_stable(self):
         """
         Is the method algebraically stable ?
         """
+        # Remark: should better pythonize this method. 
         if self.is_explicit or len([s for s in self.B if s<0])!=0:
             return False
         else:
-            As=True
-            B = self.B
-            A = self.A
-            s = self.s
-            M = matrix(QQbar,s,s)
-            for i in range(0,s):
-                for j in range(0,s):
-                    if B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]<0:
-                        As=False
-                        if not As:
-                            break
-                if not As: break
-            return As
+            #As=True
+            #B = self.B
+            #A = self.A
+            #s = self.s
+            # M = matrix(QQbar,s,s)
+            # for i in range(0,s):
+            #     for j in range(0,s):
+            #         if B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]<0:
+            #             As=False
+            #             if not As:
+            #                 break
+            #     if not As: break
+            #return As
+            M=self.M_matrix
+            return all(s>=0 for s in M.list())
     @lazy_attribute    
     def conserve_quadratic_invariants(self):
         """
         Documentation is in the name of this method!
         """
         if self.is_explicit:
-            ret =  False
+            return False
         else:
-            B = self.B
-            A = self.A
-            s = self.s
-            M = matrix(QQbar,s,s)
-            for i in range(0,s):
-                for j in range(0,s):
-                    M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
-            return  M.is_zero()
+            # B = self.B
+            # A = self.A
+            # s = self.s
+            # M = matrix(QQbar,s,s)
+            # for i in range(0,s):
+            #     for j in range(0,s):
+            #         M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
+            # return  M.is_zero()
+            return self.M_matrix.is_zero()
     def check_order_using_rooted_trees(self,order):
         """
         Check rooted tree at order 'order'.
@@ -355,8 +376,8 @@ class  RKformula(SageObject):
         Rs = self.stability_function
         RRs=Rs.numerator().change_ring(RDF)/Rs.denominator().change_ring(RDF)
         s=RRs(x+SR(I)*y)/exp(x+SR(I)*y)
-        #star=s.abs()
         return s.abs()
+
     def compute_all_properties(self):
         """
         Compute all possible properties of the formula.
@@ -379,11 +400,10 @@ class  RKformula(SageObject):
         self.stability_on_real_negative_axis
         self.stability_on_real_negative_axis
         self.order
-        #x,y=SR.var("x,y")
         self.order_star_function
     def print_all_known_properties(self):
-        donot=["A","B","C","D","R","s","RTrees"]
+        donotprint=["A","B","C","D","R","s","RTrees","M_matrix"]
         D=self.__dict__
         for key in D:
-            if key not in donot:
+            if key not in donotprint:
                 print("-> ",key," :\n",D[key],"\n")
