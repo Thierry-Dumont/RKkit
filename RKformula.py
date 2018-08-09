@@ -296,19 +296,6 @@ class  RKformula(SageObject):
         if self.is_explicit or len([s for s in self.B if s<0])!=0:
             return False
         else:
-            #As=True
-            #B = self.B
-            #A = self.A
-            #s = self.s
-            # M = matrix(QQbar,s,s)
-            # for i in range(0,s):
-            #     for j in range(0,s):
-            #         if B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]<0:
-            #             As=False
-            #             if not As:
-            #                 break
-            #     if not As: break
-            #return As
             M=self.M_matrix
             return all(s>=0 for s in M.list())
     @lazy_attribute
@@ -328,18 +315,12 @@ class  RKformula(SageObject):
         """
         Documentation is in the name of this method!
         """
-        if self.is_explicit:
-            return False
-        else:
-            # B = self.B
-            # A = self.A
-            # s = self.s
-            # M = matrix(QQbar,s,s)
-            # for i in range(0,s):
-            #     for j in range(0,s):
-            #         M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
-            # return  M.is_zero()
-            return self.M_matrix.is_zero()
+        # if self.is_explicit:
+        #     return False
+        # else:
+        #     return self.M_matrix.is_zero()
+        return not self.is_explicit and self.M_matrix.is_zero()
+    
     def check_order_using_rooted_trees(self,order):
         """
         Check rooted tree at order 'order'.
@@ -408,7 +389,7 @@ class  RKformula(SageObject):
         self.is_stiffly_accurate
         self.is_L_stable
         self.is_algebraically_stable
-        self.is_Symetric
+        self.is_Symmetric
         self.conserve_quadratic_invariants
         self.stability_on_real_negative_axis
         self.stability_on_real_negative_axis
