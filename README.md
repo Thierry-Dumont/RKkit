@@ -68,7 +68,7 @@ but:
 
 `sage: F.is_A_stable`
 
-as, with the @lazy_attribute decorator, refering to an attribute triggers (once!) the corresponding method ([see here](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)).
+as, with the @lazy_attribute decorator, refering to an attribute triggers (only once!) the corresponding method ([see here](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)).
 
 _Hint:_ if it does not work with brackets, try without, and vice-versa :-) .
 
