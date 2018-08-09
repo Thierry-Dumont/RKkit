@@ -16,7 +16,7 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
 
 I also hope to implement  B-series in the future.
 
-Some sage/jupyter notebooks are provided: they probably provide  the best way to test this code.
+Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code.
 
 #### References: ####
 
