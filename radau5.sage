@@ -1,6 +1,6 @@
 class Radau5:
     title="Radau5 method"
-    comment= title
+    #
     A=matrix(AA,3,3)
     s6=AA(sqrt(6))
     A[0,0]=1/9

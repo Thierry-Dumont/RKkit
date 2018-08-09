@@ -3,5 +3,4 @@ class SDIRK3:
     A=matrix(AA,[[g,0],[1-2*g,g]])
     B=[1/2,1/2]
     title= "Sdirk3 method"
-    comment=""
     
