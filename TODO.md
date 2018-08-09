@@ -1,3 +1,3 @@
-* Improve graphics (add widgets).
+* Improve graphics.
 
 * Implement B-series.
