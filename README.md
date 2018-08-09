@@ -32,7 +32,7 @@ _Bible_:
 
 * If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
-for which freely available pdf files can be [download](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
+for which freely available pdf files can be [downloaded](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
 
 
  # Using the code #
@@ -45,7 +45,6 @@ This class must define:
   
   2- A title
   
-  3- A comment.
 
 Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or QQbar)!
 
