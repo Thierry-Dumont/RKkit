@@ -16,13 +16,12 @@ class  RKTrees(SageObject):
     sage: R= RKTrees(n)
 
     n is the maximum depth of the rooted trees you will use (the
-    build list will be enlarged if necessary).
+    built dictionary will be enlarged if necessary).
     """
-    def __init__(self,n=1):
-        self.n = n
+    def __init__(self):
+        self.n = 1
         self.dtrees = {}
-        for i in range(1,n+1):
-            self.expand(i)
+        self.expand(1)
     def expand(self,l):
         r"""
         Extend the list of rooted trees up to depth l]

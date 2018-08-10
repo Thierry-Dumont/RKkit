@@ -26,6 +26,7 @@ from sage.calculus.functional import derivative
 from sage.misc.cachefunc import cached_function
 from sage.rings.infinity import minus_infinity
 from sage.misc.lazy_attribute import *
+from sage.modules.free_module_element import vector
 
 from RKTrees import *
 #
@@ -71,8 +72,8 @@ class  RKformula(SageObject):
             raise DimensionsAreIncompatible(A,B,C)
         # force coefficients to live in AA:
         self.A = A.change_ring(AA)
-        self.B = [ AA(b) for b in B]
-        self.C = [ AA(c) for c in C]
+        self.B = vector([ AA(b) for b in B])
+        self.C = vector([ AA(c) for c in C])
         self.D = AA
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
@@ -307,7 +308,7 @@ class  RKformula(SageObject):
         for i in range(0,self.s):
             P[i,self.s-i-1]=1
         PA=P*self.A+ self.A*P
-        return all(self.B==Row.list() for Row in PA.rows()) and \
+        return all(self.B==Row for Row in PA.rows()) and \
             self.B == P*self.B
 
     @lazy_attribute    
@@ -320,12 +321,21 @@ class  RKformula(SageObject):
         # else:
         #     return self.M_matrix.is_zero()
         return not self.is_explicit and self.M_matrix.is_zero()
-    
+    @lazy_attribute
+    def is_Symplectic(self):
+        """
+        Test for simplexity. We conlude (positively) only if
+        the matrix N (see above) is zero.
+        """
+        if self.M_matrix.is_zero():
+            return True
+        else:
+            return "Unknown"
     def check_order_using_rooted_trees(self,order):
         """
         Check rooted tree at order 'order'.
         """
-        self.RTrees = RKTrees(order)
+        self.RTrees = RKTrees()
         t = False
         for i in range(1,order+1):
             t = self.RTrees.check_order(self.A,self.B,i)
@@ -390,6 +400,7 @@ class  RKformula(SageObject):
         self.is_L_stable
         self.is_algebraically_stable
         self.is_Symmetric
+        self.is_Symplectic
         self.conserve_quadratic_invariants
         self.stability_on_real_negative_axis
         self.stability_on_real_negative_axis
