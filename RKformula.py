@@ -84,6 +84,7 @@ class  RKformula(SageObject):
         Return number of stages of the method.
         """
         return self.s
+    
     @lazy_attribute
     def stability_function(self):
         """
@@ -128,8 +129,8 @@ class  RKformula(SageObject):
         False
 
         """
-        ret = self.stability_function.denominator().degree()==0
-        return ret
+        return self.stability_function.denominator().degree()==0
+
     @lazy_attribute   
     def poles_of_stability_function(self):
         """
@@ -158,6 +159,7 @@ class  RKformula(SageObject):
         llzero = len([s for s in Poles if s[0].real()==0 ])
         #return llp==0,llzero
         return llp,llzero
+    
     @lazy_attribute
     def order_of_stability_function(self):
         """
@@ -202,6 +204,7 @@ class  RKformula(SageObject):
         m2d = RIaxeD*conj(RIaxeD)
         m2 = m2n/generic_power(m2d,2)
         return m2
+    
     @lazy_attribute
     def is_module_of_stability_function_constant_on_Im(self):
         """
@@ -209,8 +212,7 @@ class  RKformula(SageObject):
         """
         m2 = self.squared_module_of_stability_function_on_Im
         x = m2.parent().gen()
-        q = derivative(m2,x)
-        return  q==0
+        return derivative(m2,x) == 0
 
     @lazy_attribute
     def is_module_of_stability_function_less_than_1(self):
@@ -220,7 +222,7 @@ class  RKformula(SageObject):
         """
         is_const = self.is_module_of_stability_function_constant_on_Im
         if is_const:
-            lt1 = True
+            return True
         else:
             m2 = self.squared_module_of_stability_function_on_Im
             l1,ok,n = roots_checked(m2.numerator()-m2.denominator(),QQbar)
@@ -232,14 +234,14 @@ class  RKformula(SageObject):
                 l1r = len(l1m1realp)
                 if l1r==1:
                     # module value is 0, only in x == 0.
-                    lt1 =  m2(z=1) <1
+                    return  m2(z=1) <1
                 else:
                     points = [(l1m1realp[i]+l1m1realp[i+1])/2 \
                               for i in range(0,l1r-1)]
                     points.append(l1m1realp[l1r-1]*3/2)
                     signes = [sign(abs(m2(x = s).real())-1) for s in points]
-                    lt1 = len([x for x in signes if x >=0]) == 0
-            return lt1
+                    return len([x for x in signes if x >=0]) == 0
+    
     @lazy_attribute    
     def is_A_stable(self):
         """
@@ -247,10 +249,10 @@ class  RKformula(SageObject):
 
         See: HW II , second edition, page 43.
         """
-        ret = (self.is_module_of_stability_function_constant_on_Im or \
+        return  (self.is_module_of_stability_function_constant_on_Im or \
                self.is_module_of_stability_function_less_than_1) and  \
                self.real_part_of_poles_all_positive[0]
-        return ret
+
     @lazy_attribute
     def is_stiffly_accurate(self):
         """
@@ -288,6 +290,7 @@ class  RKformula(SageObject):
             for j in range(0,self.s):
                 M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
         return M
+    
     @lazy_attribute    
     def is_algebraically_stable(self):
         """
@@ -299,6 +302,7 @@ class  RKformula(SageObject):
         else:
             M=self.M_matrix
             return all(s>=0 for s in M.list())
+        
     @lazy_attribute
     def is_Symmetric(self):
         """
@@ -316,11 +320,8 @@ class  RKformula(SageObject):
         """
         Documentation is in the name of this method!
         """
-        # if self.is_explicit:
-        #     return False
-        # else:
-        #     return self.M_matrix.is_zero()
         return not self.is_explicit and self.M_matrix.is_zero()
+    
     @lazy_attribute
     def is_Symplectic(self):
         """
@@ -331,6 +332,7 @@ class  RKformula(SageObject):
             return True
         else:
             return "Unknown"
+        
     def check_order_using_rooted_trees(self,order):
         """
         Check rooted tree at order 'order'.
@@ -342,6 +344,7 @@ class  RKformula(SageObject):
             if not t:
                 break
         return t
+    
     @lazy_attribute
     def stability_on_real_negative_axis(self):
         r"""
@@ -368,6 +371,7 @@ class  RKformula(SageObject):
         while self.check_order_using_rooted_trees(o+1):
             o+= 1
         return o
+    
     @lazy_attribute
     def order_star_function(self):
         """
@@ -406,6 +410,7 @@ class  RKformula(SageObject):
         self.stability_on_real_negative_axis
         self.order
         self.order_star_function
+        
     def print_all_known_properties(self):
         donotprint=["A","B","C","D","R","s","RTrees","M_matrix"]
         D=self.__dict__
