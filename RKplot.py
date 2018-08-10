@@ -8,7 +8,8 @@ from sage.plot.point import *
 from RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
 
-def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
+def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
+           ncurves=1,limits=[],fill=False,type="stab"):
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
         return s*conjugate(s)
@@ -22,8 +23,7 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
                 "Cannot find limits. You must define: limits = [(x1,y1),(x2,y2)]")
         else:
             raise GraphicProblem("Mthod is not A_stable and no stab. limit is known")
-            #L1 = limits[0]
-            #L2 = limits[1]
+          
     else:
         if limits == []:
             if len(RDroots)>0:
@@ -69,12 +69,17 @@ def RKplot(RKf,title="",Enlarge=4,ncurves=1,limits=[],fill=False,type="stab"):
         stitle =  "Stability domain for "+title
     else:
         stitle = ""
+    # translate:
+    if TranslateX!=0:
+        d=(L1[1]-L1[0])*TranslateX/100.
+        L1=(L1[0]-d,L1[1]-d)
     x=SR.var("x")
     y=SR.var("y")
     if withCmap:
         c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
                          contours=[-1,-0.5,0,1],
-                         labels=True,fill=fill, label_inline=True,axes=True,colorbar=True)
+                         labels=True,fill=fill, label_inline=True,
+                         axes=True,colorbar=True)
                        
     else:
         c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]), \
