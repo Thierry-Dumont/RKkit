@@ -97,3 +97,5 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 2. _Gaussian.ipynb_:  construct and test the Gauss methods.
 
 3. _All properties.ipynb_: show how to compute all possible properties of a method.
+
+4. _Test.ipynb_ : just testing that all work fine on a set of formulas.
