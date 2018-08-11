@@ -10,6 +10,23 @@ from sage.rings.infinity import minus_infinity
 
 def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
            ncurves=1,limits=[],fill=False,type="stab"):
+    """
+    Plot isovalues of stability function or Order star.
+
+    PARAMETERS:
+    ----------
+
+    RKf: the formula (instantiation of RKformula.
+    Enlarge: plot is done in a window around (0,0) in \mathbb{C}.
+             We can Enlarge the size of the window by this factor (a real
+             positive number).
+    TranslateX : tranlate the origin in the window along x axis.
+    ncurves: number of curves to plot.
+    limits: [[min of x, max of x],[min of y, max of y]] for the window.
+            In most case, this is computed.
+    fill: to fill the plot (see contour_plot documentation).
+    type= "stab" for stability function (default), "star" for the Order star.
+    """
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
         return s*conjugate(s)
@@ -17,6 +34,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     RDroots = RKf.poles_of_stability_function
     Rstab= RKf.stability_on_real_negative_axis
 
+    # try to compute limits:
     if Rstab==minus_infinity and RDroots == [] :
         if limits==[]:
             raise GraphicProblem(
@@ -50,6 +68,8 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     if limits != []:
         L1 = limits[0]
         L2 = limits[1]
+
+    # What to plot:
     if type ==   "stab":
         sf=lambda x,y: sf1(x,y,RKf.stability_function)
     elif type == "star":
@@ -57,34 +77,41 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
     if ncurves == 1:
-        contrs = [1]
+        #contrs = [1]
         withCmap =  True
     else:
-        h = 1./(ncurves-1)
-        contrs = [1+h*i for i in range(0,ncurves)]
+        #h = 1./(ncurves-1)
+        #contrs = [1+h*i for i in range(0,ncurves)]
         withCmap = False
-    if fill: contrs.append(99999)
+    #if fill: contrs.append(99999)
 
     if title != "":
-        stitle =  "Stability domain for "+title
+        stitle =  title
     else:
-        stitle = ""
+        if type ==  "stab":
+            stitle= "Stability function."
+        else:
+            stitle = "Order star."
+            
     # translate:
     if TranslateX!=0:
         d=(L1[1]-L1[0])*TranslateX/100.
         L1=(L1[0]-d,L1[1]-d)
+        
     x=SR.var("x")
     y=SR.var("y")
-    if withCmap:
-        c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
-                         contours=[-1,-0.5,0,1],
-                         labels=True,fill=fill, label_inline=True,
-                         axes=True,colorbar=True)
+    # if withCmap:
+    #     c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
+    #                      contours=[0,1],
+    #                      labels=True,fill=fill, label_inline=True,
+    #                      axes=True,colorbar=True,title=stitle)
                        
-    else:
-        c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]), \
-                         contours=[-1,0,1],labels=True,label_inline=True,
-                         axes=True,fill=fill,colorbar=True)
-                       
-    return c
+    # else:
+    #     c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]), \
+    #                      contours=[-1,0,1],labels=True,label_inline=True,
+    #                      axes=True,fill=fill,colorbar=True,title=stitle)
+    return contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
+                     contours=[0,1],
+                     labels=True,fill=fill, label_inline=True,
+                     axes=True,colorbar=True,title=stitle)                 
 

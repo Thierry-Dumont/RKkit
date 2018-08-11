@@ -50,7 +50,7 @@ class  RKformula(SageObject):
         EXAMPLES::
         
         sage: A = matrix(AA,[[5/12,-1/12],[3/4,1/4]])
-        sage: B = [3/4,1/4]
+        sage: B = vector([3/4,1/4]) (or simply B = [3/4,1/4])
         sage: F = RKformula(A,B)
         """
         # All elements of the formula must live in an exact ring:
@@ -77,6 +77,7 @@ class  RKformula(SageObject):
         self.D = AA
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
+ 
 
     @lazy_attribute    
     def n_stages(self):
@@ -152,12 +153,9 @@ class  RKformula(SageObject):
 
         Returns: (all poles have >=0 real part?) and number of poles==0.
         """
-
         Poles = self.poles_of_stability_function
-        #llp = len([s for s in Poles if s[0].real()<0 ])
         llp=all(s[0].real()>=0 for s in Poles)
         llzero = len([s for s in Poles if s[0].real()==0 ])
-        #return llp==0,llzero
         return llp,llzero
     
     @lazy_attribute
@@ -169,14 +167,15 @@ class  RKformula(SageObject):
         z = self.R.gen()
         while derivative(self.stability_function,z,order)(z = 0)==1: \
               order+= 1
-        order-= 1
-        return order
+        return order -1
+    
     @lazy_attribute
     def module_of_stability_function_squared(self):
         """
         Documentation is in the name of this method!
         """
         return self.stability_function*conjugate(self.stability_function)
+    
     @lazy_attribute
     def stability_function_on_im_axis(self):
         """
@@ -202,8 +201,7 @@ class  RKformula(SageObject):
         m2NI = impart(m2N)
         m2n = generic_power(m2NR,2)+generic_power(m2NI,2)
         m2d = RIaxeD*conj(RIaxeD)
-        m2 = m2n/generic_power(m2d,2)
-        return m2
+        return  m2n/generic_power(m2d,2)
     
     @lazy_attribute
     def is_module_of_stability_function_constant_on_Im(self):

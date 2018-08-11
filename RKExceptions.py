@@ -17,7 +17,7 @@ class DimensionsAreIncompatible(SageObject,Exception):
 class RootsException(Exception):
     r"""
     Exception raised when the roots of a given polynomial
-    could not be *all* computed.
+    could not be *all* computed (with their multiplicity).
     (We generally compute in QQbar, and we can meet Evariste Gallois). 
     """
     def __init__(self,ncomp,pol):

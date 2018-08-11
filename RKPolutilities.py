@@ -6,7 +6,7 @@ from sage.rings.all import (QQ,AA,QQbar)
 from sage.symbolic.ring import SR
 from sage.symbolic.constants import I
 def conj(P):
-    r"""
+    """
     Conjugate of a polynomial P.
     """
     Pc = P.coefficients()
@@ -16,7 +16,7 @@ def conj(P):
                    sum([Pc[p]*generic_power(x,p) for p in range(0,len(Pc)) \
                         if Pc[p].imag() != 0])
 def impart(P):
-    r"""
+    """
     Imaginary part of a polynomial P.
     """
     Pc = P.coefficients()
@@ -25,7 +25,7 @@ def impart(P):
     return sum([-Im*Pc[p]*generic_power(x,p) \
                 for p in range(0,len(Pc))  if Pc[p].imag() != 0])
 def realpart(P):
-    r"""
+    """
     Real part of a polynomial P.
     """
     x = P.parent().gen()
@@ -33,8 +33,8 @@ def realpart(P):
     return sum([Pc[p]*generic_power(x,p) for p in range(0,len(Pc)) \
                 if Pc[p].imag() == 0])
 def roots_checked(pol,Q):
-    r"""
-    Check that, computing in the ring Q, we have n roots (with their
+    """
+    Check that, computing in the ring Q, we can compute  n roots (with their
     multiplicity) for a  polynomial pol of degree n.
     """
     q = pol.change_ring(Q)

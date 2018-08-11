@@ -24,7 +24,7 @@ def colloc(c,P):
     #
     for s in c:
         if s<0 or s>1:
-            raise IndexError("colloc: ",s," out of [0,1]")
+            raise IndexError("colloc: collocation point ",s," is out of [0,1]")
     pols=[]
     for  i in range(0,n):
         ploc=P(1)
@@ -39,7 +39,7 @@ def colloc(c,P):
                   for i in range(0,n)])
     
     B = [prims[j](x = 1) - prims0[j] for j in range(0,n)]
-    # exactify to improve lisibility!
+    # exactify to improve lisibility, if possible!
     for i in range(0,n):
         for j in range(0,n):
             A[i,j].exactify()
