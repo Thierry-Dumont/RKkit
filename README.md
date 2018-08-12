@@ -48,7 +48,7 @@ This class must define:
   2- A title
   
 
-Be carefull: The coefficients of A and B *must* live in algebraic numbers (AA or QQbar)!
+Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
 
 * Then the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
 
@@ -62,11 +62,11 @@ and launch the notebook _Exemple1.ipynb_.
 _property_ _only_ _once_ (as computations  can be very expensive).
 
 This can be a bit disturbing:
- you must *not* write:
+ do *not* write:
 
 `sage: F.is_A_stable()` 
 
-but:
+but write:
 
 `sage: F.is_A_stable`
 
