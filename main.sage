@@ -7,4 +7,4 @@ F=RKformula(Radau5.A,Radau5.B)
 # n =2
 # c = [(s[0]+1)/2 for s in R(legendre_P(n,x)).roots()]
 # A,B = colloc(c,R)
-# F=RKformula(A,B)
+# F=RKformula(A,B) 

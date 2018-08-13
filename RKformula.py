@@ -266,7 +266,21 @@ class  RKformula(SageObject):
         return  self.is_A_stable and \
               (len([1 for j in range(0,self.s) if A[s1,j] != B[j]]) == 0 or \
                len([1 for i in range(0,self.s) if A[i,0] != B[0]])  == 0)
- 
+
+    @lazy_attribute
+    def R_infinite(self):
+        r"""
+        R(\infty). See Hairer-Wanner t.II pages 45 and 375.
+        """
+        if self.A_is_invertible:
+            AI=self.A.inverse()
+            One=vector([AA(1) for i in range(0,self.s)])
+            ret=AA(1)-self.B.dot_product(AI*One)
+            ret.exactify()
+            return ret
+        else:
+            raise MatrixIsSingular("A")
+    
     @lazy_attribute
     def is_L_stable(self):
         """
@@ -276,7 +290,9 @@ class  RKformula(SageObject):
             return False
         else:
             R=self.stability_function
-            return R.denominator().degree() > R.numerator().degree()
+            return R.denominator().degree() > R.numerator().degree() or \
+                self.R_infinite.is_zero()
+        
 
     @lazy_attribute
     def M_matrix(self):

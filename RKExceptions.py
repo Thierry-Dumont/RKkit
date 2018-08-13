@@ -28,10 +28,18 @@ class RootsException(Exception):
         return "for "+str(self.pol)+" (degree= "+str(self.degree)+" ), only " \
             +str(self.ncomp)+" where computed."
 class GraphicProblem(Exception):
-    r"""
+    """
     Exception raised when an error happens in a graphic.
     """
     def __init__(self,t):
         self.t = t
     def __str__(self):
         return "Graphic problem: "+self.t
+class MatrixIsSingular(Exception):
+    """
+    Exception raised when a matrix is singular/
+    """
+    def __init__(self,t):
+        self.t = t
+    def __str__(self):
+        return "for this method, "+self.t+ " is a singular matrix"
