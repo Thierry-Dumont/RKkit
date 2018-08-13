@@ -102,7 +102,7 @@ class  RKTrees(SageObject):
             if f != 1: ft*= factorial(f)
             return prod([self.symetry_coefficient(s) for s in l])*ft
     def compute_gamma(self):
-        """
+        r"""
         This returns the '\gamma' coefficients.
         """
         self.gamma={}

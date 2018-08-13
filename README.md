@@ -72,7 +72,15 @@ but write:
 
 as, with the @lazy_attribute decorator, refering to an attribute triggers (only once!) the corresponding method ([see here](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)).
 
-_Hint:_ if it does not work with brackets, try without, and vice-versa :-) .
+Only two methods must be called as usual, as they do not create attributes:
+
+`sage: F.compute_all_properties()`
+
+and:
+
+`sage: F.print_all_known_properties()`
+
+_Hint:_ if something does not work with brackets, try without, and vice-versa :smile:.
 
 
 ## Gaussian formulae ##

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 r"""
+
 Explore properties of Runge-Kutta methods.
 
 AUTHOR:
@@ -89,6 +90,7 @@ class  RKformula(SageObject):
     @lazy_attribute
     def stability_function(self):
         """
+
         Compute the stability function.
 
         EXAMPLES::
@@ -108,6 +110,7 @@ class  RKformula(SageObject):
     @lazy_attribute    
     def A_is_invertible(self):
         """
+
         Test if the matrix A part of the Butcher array is invertible.
 
         EXAMPLES::
@@ -278,8 +281,10 @@ class  RKformula(SageObject):
     @lazy_attribute
     def M_matrix(self):
         """
+
         Compute the matrix M used by is_algebraically_stable(self) and
         conserve_quadratic_invariants(self).
+
         """
         B=self.B
         A=self.A
@@ -292,7 +297,9 @@ class  RKformula(SageObject):
     @lazy_attribute    
     def is_algebraically_stable(self):
         """
+
         Is the method algebraically stable ?
+
         """
         # Remark: should better pythonize this method. 
         if self.is_explicit or len([s for s in self.B if s<0])!=0:
@@ -323,8 +330,10 @@ class  RKformula(SageObject):
     @lazy_attribute
     def is_Symplectic(self):
         """
+
         Test for simplexity. We conlude (positively) only if
         the matrix N (see above) is zero.
+
         """
         if self.M_matrix.is_zero():
             return True
@@ -333,7 +342,9 @@ class  RKformula(SageObject):
         
     def check_order_using_rooted_trees(self,order):
         """
+
         Check rooted tree at order 'order'.
+
         """
         self.RTrees = RKTrees()
         t = False
@@ -345,9 +356,11 @@ class  RKformula(SageObject):
     
     @lazy_attribute
     def stability_on_real_negative_axis(self):
-        r"""
+        """
+
         In the case where the method is not A-stable, find the limit
         of stability on the real negative axis.
+
         """
         if self.is_A_stable:
             return minus_infinity
@@ -363,7 +376,9 @@ class  RKformula(SageObject):
     @lazy_attribute
     def order(self):
         """
+
         Compute the order of the method using rooted trees.
+
         """
         o = 0
         while self.check_order_using_rooted_trees(o+1):
@@ -385,7 +400,9 @@ class  RKformula(SageObject):
 
     def compute_all_properties(self):
         """
+
         Compute all possible properties of the formula.
+
         """
         self.A_is_invertible
         self.is_explicit
@@ -410,6 +427,11 @@ class  RKformula(SageObject):
         self.order_star_function
         
     def print_all_known_properties(self):
+        """
+
+        Print all already computed properties.
+
+        """
         donotprint=["A","B","C","D","R","s","RTrees","M_matrix"]
         D=self.__dict__
         for key in D:
