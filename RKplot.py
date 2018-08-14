@@ -17,14 +17,21 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     ----------
 
     RKf: the formula (instantiation of RKformula.
+
     Enlarge: plot is done in a window around (0,0) in \mathbb{C}.
+
              We can Enlarge the size of the window by this factor (a real
              positive number).
+
     TranslateX : tranlate the origin in the window along x axis.
+
     ncurves: number of curves to plot.
+
     limits: [[min of x, max of x],[min of y, max of y]] for the window.
             In most case, this is computed.
+
     fill: to fill the plot (see contour_plot documentation).
+
     type= "stab" for stability function (default), "star" for the Order star.
     """
     def sf1(x,y,P):
@@ -76,15 +83,11 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
          sf = lambda x,y: RKf.order_star_function(x=x,y=y)
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
-    if ncurves == 1:
-        #contrs = [1]
-        withCmap =  True
-    else:
-        #h = 1./(ncurves-1)
-        #contrs = [1+h*i for i in range(0,ncurves)]
-        withCmap = False
-    #if fill: contrs.append(99999)
-
+    # if ncurves == 1:
+    #     withCmap =  True
+    # else:
+    #     withCmap = False
+  
     if title != "":
         stitle =  title
     else:

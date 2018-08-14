@@ -1,4 +1,4 @@
-class Gauss4:
+class Gauss4(SageObject):
     title="Gauss method, order 2."
     A=matrix(AA,[[1/4,1/4-sqrt(3)/6],[1/4+sqrt(3)/6,1/4]])
     ##

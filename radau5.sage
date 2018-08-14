@@ -1,4 +1,4 @@
-class Radau5:
+class Radau5(SageObject):
     title="Radau5 method"
     #
     A=matrix(AA,3,3)

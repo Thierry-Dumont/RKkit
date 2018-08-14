@@ -1,4 +1,4 @@
-class SDIRK5:
+class SDIRK5(SageObject):
     title="SDIRKmethod, order 5"
     # See Hairer and Wanner II, page 100.
     A=matrix(AA,5,5)
