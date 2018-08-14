@@ -25,16 +25,9 @@ class RootsException(Exception):
         self.degree = pol.degree
         self.pol = pol
     def __str__(self):
-        return "for "+str(self.pol)+" (degree= "+str(self.degree)+" ), only " \
-            +str(self.ncomp)+" where computed."
-class GraphicProblem(Exception):
-    """
-    Exception raised when an error happens in a graphic.
-    """
-    def __init__(self,t):
-        self.t = t
-    def __str__(self):
-        return "Graphic problem: "+self.t
+        return "for " + str(self.pol) + " (degree= " + \
+            str(self.degree) + " ), only " \
+            +str(self.ncomp)+ " where computed."
 class MatrixIsSingular(Exception):
     """
     Exception raised when a matrix is singular/
@@ -43,3 +36,12 @@ class MatrixIsSingular(Exception):
         self.t = t
     def __str__(self):
         return "for this method, "+self.t+ " is a singular matrix"
+class GraphicProblem(Exception):
+    """
+    Exception raised when an error happens in a graphic.
+    """
+    def __init__(self,t):
+        self.t = t
+    def __str__(self):
+        return "Graphic problem: "+self.t
+

@@ -23,19 +23,19 @@ def colloc(c,P):
     n = len(c)
     #
     for s in c:
-        if s<0 or s>1:
+        if s <0 or s >1:
             raise IndexError("colloc: collocation point ",s," is out of [0,1]")
     pols=[]
     for  i in range(0,n):
         ploc=P(1)
         for p in range(0,n):
             if i!=p:
-                ploc*=P((x-c[p])/(Pb(c[i])-Pb(c[p])))
+                ploc *= P((x-c[p])/(Pb(c[i])-Pb(c[p])))
         pols.append(ploc)
 
     prims = [p.integral(x) for p in pols]
     prims0 = [p(x = 0) for p in prims]
-    A = matrix(Pb,[ [prims[j](x = c[i])-prims0[j] for j in range(0,n)] \
+    A = matrix(Pb,[ [prims[j](x = c[i]) - prims0[j] for j in range(0,n)] \
                   for i in range(0,n)])
     
     B = [prims[j](x = 1) - prims0[j] for j in range(0,n)]

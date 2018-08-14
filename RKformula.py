@@ -5,10 +5,19 @@ Explore properties of Runge-Kutta methods.
 
 AUTHOR:
  
- - Thierry Dumont (2016, 2018) 
-
+ - Thierry Dumont (2016, 2018)
+   Institut C. Jordan, Lyon, France.
 """
 
+# ****************************************************************************
+#       Copyright (C) 2018 Thierry Dumont tdumont@math.univ-lyon1.fr
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#                  https://www.gnu.org/licenses/
+# ****************************************************************************
 from __future__ import absolute_import
 from __future__ import print_function
 
@@ -28,6 +37,7 @@ from sage.misc.cachefunc import cached_function
 from sage.rings.infinity import minus_infinity
 from sage.misc.lazy_attribute import *
 from sage.modules.free_module_element import vector
+from sage.misc.latex import latex
 
 from RKTrees import *
 #
@@ -79,7 +89,11 @@ class  RKformula(SageObject):
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
  
-
+    def _latex_(self):
+        r"""
+        Return the LaTeX representation of X.
+        """
+        return latex(self.A)+" "+latex(self.B)
     @lazy_attribute    
     def n_stages(self):
         """
@@ -103,8 +117,8 @@ class  RKformula(SageObject):
         Rng = self.D
         K = matrix(Rng,[self.B for i in range(0,self.s)])
         II = identity_matrix(Rng,self.s)
-        D = II-z*self.A
-        N = D+z*K
+        D = II - z*self.A
+        N = D + z*K
         return N.determinant()/D.determinant()
 
     @lazy_attribute    
@@ -157,7 +171,7 @@ class  RKformula(SageObject):
         Returns: (all poles have >=0 real part?) and number of poles==0.
         """
         Poles = self.poles_of_stability_function
-        llp=all(s[0].real()>=0 for s in Poles)
+        llp = all(s[0].real()>=0 for s in Poles)
         llzero = len([s for s in Poles if s[0].real()==0 ])
         return llp,llzero
     
@@ -204,7 +218,7 @@ class  RKformula(SageObject):
         m2NI = impart(m2N)
         m2n = generic_power(m2NR,2)+generic_power(m2NI,2)
         m2d = RIaxeD*conj(RIaxeD)
-        return  m2n/generic_power(m2d,2)
+        return m2n/generic_power(m2d,2)
     
     @lazy_attribute
     def is_module_of_stability_function_constant_on_Im(self):
@@ -263,7 +277,7 @@ class  RKformula(SageObject):
         A = self.A
         B = self.B
         s1 = self.s-1
-        return  self.is_A_stable and \
+        return self.is_A_stable and \
               (len([1 for j in range(0,self.s) if A[s1,j] != B[j]]) == 0 or \
                len([1 for i in range(0,self.s) if A[i,0] != B[0]])  == 0)
 
@@ -273,9 +287,9 @@ class  RKformula(SageObject):
         R(\infty). See Hairer-Wanner t.II pages 45 and 375.
         """
         if self.A_is_invertible:
-            AI=self.A.inverse()
-            One=vector([AA(1) for i in range(0,self.s)])
-            ret=AA(1)-self.B.dot_product(AI*One)
+            AI = self.A.inverse()
+            One = vector([AA(1) for i in range(0,self.s)])
+            ret = AA(1)-self.B.dot_product(AI*One)
             ret.exactify()
             return ret
         else:
@@ -302,8 +316,8 @@ class  RKformula(SageObject):
         conserve_quadratic_invariants(self).
 
         """
-        B=self.B
-        A=self.A
+        B = self.B
+        A = self.A
         M = matrix(QQbar,self.s,self.s)
         for i in range(0,self.s):
             for j in range(0,self.s):
@@ -321,19 +335,19 @@ class  RKformula(SageObject):
         if self.is_explicit or len([s for s in self.B if s<0])!=0:
             return False
         else:
-            M=self.M_matrix
-            return all(s>=0 for s in M.list())
+            M = self.M_matrix
+            return all(s >=0 for s in M.list())
         
     @lazy_attribute
     def is_Symmetric(self):
         """
         All is in the title.
         """
-        P=matrix(AA,self.s,self.s)
+        P = matrix(AA,self.s,self.s)
         for i in range(0,self.s):
             P[i,self.s-i-1]=1
-        PA=P*self.A+ self.A*P
-        return all(self.B==Row for Row in PA.rows()) and \
+        PA =P *self.A+ self.A*P
+        return all(self.B == Row for Row in PA.rows()) and \
             self.B == P*self.B
 
     @lazy_attribute    

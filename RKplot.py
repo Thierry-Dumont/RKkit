@@ -44,22 +44,22 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
           
     else:
         if limits == []:
-            if len(RDroots)>0:
-                Lr= max(max([abs(s[0].n().real()) for s in RDroots]), \
+            if len(RDroots) > 0:
+                Lr = max(max([abs(s[0].n().real()) for s in RDroots]), \
                         max([abs(s[0].n().imag()) for s in RDroots]))
             else:
-                Lr=0
+                Lr = 0
                 
             if Rstab != minus_infinity:
-                L=max(-Rstab,Lr)
+                L = max(-Rstab,Lr)
                 Lm= -L*Enlarge
                 Lp= -Lm
             elif RKf.is_A_stable:
-                L= Lr
+                L = Lr
                 Lm = -Enlarge*L
                 Lp = 3*Enlarge*L/2
             else:
-                Lm=-L
+                Lm = -L
                 Lp = L
             
             L1 = (Lm,Lp)
@@ -71,9 +71,9 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
 
     # What to plot:
     if type ==   "stab":
-        sf=lambda x,y: sf1(x,y,RKf.stability_function)
+        sf = lambda x,y: sf1(x,y,RKf.stability_function)
     elif type == "star":
-         sf=lambda x,y: RKf.order_star_function(x=x,y=y)
+         sf = lambda x,y: RKf.order_star_function(x=x,y=y)
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
     if ncurves == 1:
@@ -95,11 +95,11 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
             
     # translate:
     if TranslateX!=0:
-        d=(L1[1]-L1[0])*TranslateX/100.
-        L1=(L1[0]-d,L1[1]-d)
+        d = (L1[1]-L1[0])*TranslateX/100.
+        L1 = (L1[0]-d,L1[1]-d)
         
-    x=SR.var("x")
-    y=SR.var("y")
+    x = SR.var("x")
+    y = SR.var("y")
     # if withCmap:
     #     c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
     #                      contours=[0,1],
@@ -111,7 +111,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     #                      contours=[-1,0,1],labels=True,label_inline=True,
     #                      axes=True,fill=fill,colorbar=True,title=stitle)
     return contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
-                     contours=[0,1],
-                     labels=True,fill=fill, label_inline=True,
-                     axes=True,colorbar=True,title=stitle)                 
+                     contours = [0,1],
+                     labels = True,fill = fill, label_inline = True,
+                     axes = True,colorbar = True,title = stitle)                 
 

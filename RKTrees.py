@@ -53,19 +53,19 @@ class  RKTrees(SageObject):
         self._LabelledTree_to_formula(rtc,rtc.label(),faclist)
         return faclist
     def eval_sum_prod(self,A,B,formula,v):
-        return  B[v[0]]*prod( [A[v[i[0]-1],v[i[1]-1]] for i in formula] )
+        return  B[v[0]] * prod( [A[v[i[0]-1],v[i[1]-1]] for i in formula] )
     def check_tree_order(self,A,B,rt):
-        n=len(B)
-        s=set(range(0,n))
-        S=cartesian_product([s for i in range(0,rt.node_number())])
+        n = len(B)
+        s = set(range(0,n))
+        S = cartesian_product([s for i in range(0,rt.node_number())])
         #
-        f=self.tree_to_order_formula(rt)
+        f = self.tree_to_order_formula(rt)
         #
         s =  sum([self.eval_sum_prod(A,B,f,v) for v in S])
         return s*self.gamma(rt) == 1
     def check_order(self,A,B,order):
         """
-        Proove that the rooted trees of order 'order' fullfill 
+        Prove that the rooted trees of order 'order' fullfill 
         the requirements.
 
         To check if a Runge-Kutta formula as order 'n', one must call 

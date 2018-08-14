@@ -11,9 +11,9 @@ def conj(P):
     """
     Pc = P.coefficients()
     x = P.parent().gen()
-    return sum([Pc[p]*generic_power(x,p) for p in range(0,len(Pc))\
+    return sum([Pc[p] * generic_power(x,p) for p in range(0,len(Pc))\
                 if Pc[p].imag() == 0]) - \
-                   sum([Pc[p]*generic_power(x,p) for p in range(0,len(Pc)) \
+                   sum([Pc[p] * generic_power(x,p) for p in range(0,len(Pc)) \
                         if Pc[p].imag() != 0])
 def impart(P):
     """
@@ -22,7 +22,7 @@ def impart(P):
     Pc = P.coefficients()
     x = P.parent().gen() 
     Im = QQbar(I)
-    return sum([-Im*Pc[p]*generic_power(x,p) \
+    return sum([-Im * Pc[p]*generic_power(x,p) \
                 for p in range(0,len(Pc))  if Pc[p].imag() != 0])
 def realpart(P):
     """
@@ -30,7 +30,7 @@ def realpart(P):
     """
     x = P.parent().gen()
     Pc = P.coefficients()
-    return sum([Pc[p]*generic_power(x,p) for p in range(0,len(Pc)) \
+    return sum([Pc[p] * generic_power(x,p) for p in range(0,len(Pc)) \
                 if Pc[p].imag() == 0])
 def roots_checked(pol,Q):
     """
