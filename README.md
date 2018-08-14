@@ -83,7 +83,7 @@ and:
 _Hint:_ if something does not work with brackets, try without, and vice-versa :smile:.
 
 
-## Gaussian formulae ##
+## Gaussian formulas ##
 
 Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
 
@@ -102,8 +102,8 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 
 1. _Example.ipynb_ :  a tour of the system.
 
-2. _Gaussian.ipynb_:  construct and test the Gauss methods.
+2. _Gaussian.ipynb_:  construct and test some of the Gauss methods.
 
 3. _All properties.ipynb_: show how to compute all possible properties of a method.
 
-4. _Test.ipynb_ : just testing that all work fine on a set of formulas.
+4. _Test.ipynb_ : just testing that everything works fine on a set of formulas.
