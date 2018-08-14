@@ -34,7 +34,7 @@ _If you want to learn and to understand rooted trees and B-series, I recommend t
 
 * If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
-for which freely available pdf files can be [downloaded](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
+for which freely available pdf files can be [downloaded here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
 
 
  # Using the code #
