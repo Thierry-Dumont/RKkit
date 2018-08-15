@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
 from  sage.all import *
 from sage.combinat.rooted_tree import RootedTree as RT
 from sage.combinat.rooted_tree import RootedTrees_size as RTS

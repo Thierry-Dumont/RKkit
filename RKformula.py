@@ -18,7 +18,6 @@ AUTHOR:
 # (at your option) any later version.
 #                  https://www.gnu.org/licenses/
 # ****************************************************************************
-from __future__ import absolute_import
 from __future__ import print_function
 from sage.all import *
 from sage.rings.infinity import minus_infinity

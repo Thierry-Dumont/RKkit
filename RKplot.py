@@ -18,7 +18,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
              We can Enlarge the size of the window by this factor (a real
              positive number).
 
-    TranslateX : tranlate the origin in the window along x axis.
+    TranslateX : translate the origin in the window along x axis.
 
     ncurves: number of curves to plot.
 
@@ -27,7 +27,8 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
 
     fill: to fill the plot (see contour_plot documentation).
 
-    type= "stab" for stability function (default), "star" for the Order star.
+    type= 'stab' for stability function (default), 'star' for the Order star.
+
     """
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
