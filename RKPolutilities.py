@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import 
-from sage.structure.sage_object import SageObject
+from __future__ import absolute_import
+from sage.all import *
 from sage.arith.power  import generic_power
-from sage.rings.all import (QQ,AA,QQbar)
-from sage.symbolic.ring import SR
-from sage.symbolic.constants import I
+#
 def conj(P):
     """
     Conjugate of a polynomial P.

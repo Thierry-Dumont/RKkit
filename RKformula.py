@@ -20,25 +20,9 @@ AUTHOR:
 # ****************************************************************************
 from __future__ import absolute_import
 from __future__ import print_function
-
-from sage.structure.sage_object import SageObject
-from sage.structure.element import generic_power
-from sage.arith.power import generic_power
-from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
-from sage.matrix.constructor import matrix,identity_matrix
-from sage.rings.all import (AA,QQbar,RDF)
-from sage.symbolic.ring import SR
-from sage.symbolic.constants import I
-from sage.functions.log import exp
-from sage.functions.other import conjugate
-from sage.functions.generalized import sign
-from sage.calculus.functional import derivative
-from sage.misc.cachefunc import cached_function
+from sage.all import *
 from sage.rings.infinity import minus_infinity
-from sage.misc.lazy_attribute import *
-from sage.modules.free_module_element import vector
-from sage.misc.latex import latex
-
+#
 from RKTrees import *
 #
 from RKExceptions import *

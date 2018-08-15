@@ -1,6 +1,5 @@
-from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
-from sage.misc.misc_c import prod
-from sage.matrix.constructor import matrix
+# -*- coding: utf-8 -*-
+from sage.all import *
 def colloc(c,P):
     """
     Given a list C of collocation points, and a ring R (AA), build 

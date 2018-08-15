@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import 
-from sage.structure.sage_object import SageObject
+from __future__ import absolute_import
+from sage.all import *
+#
 class DimensionsAreIncompatible(SageObject,Exception):
     r"""
     Exception raised when the sizes of A , B  and C

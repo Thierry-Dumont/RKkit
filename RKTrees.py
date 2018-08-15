@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-from sage.structure.sage_object import SageObject
-from sage.misc.all import prod
+from  sage.all import *
 from sage.combinat.rooted_tree import RootedTree as RT
 from sage.combinat.rooted_tree import RootedTrees_size as RTS
-from sage.categories.cartesian_product import cartesian_product
-from sage.functions.other import factorial
 #
 class  RKTrees(SageObject):
     r"""
