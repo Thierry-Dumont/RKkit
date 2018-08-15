@@ -1,10 +1,4 @@
 from __future__ import print_function
-# from sage.symbolic.ring import SR
-# from sage.symbolic.constants import I
-# from sage.rings.all import QQbar
-# from sage.functions.other import conjugate
-# from sage.plot.contour_plot import *
-# from sage.plot.point import *
 from sage.all import *
 from RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
