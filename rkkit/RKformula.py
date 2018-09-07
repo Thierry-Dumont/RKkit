@@ -344,7 +344,7 @@ class  RKformula(SageObject):
     def is_Symplectic(self):
         """
 
-        Test for simplexity. We conlude (positively) only if
+        Test for simplexity. We can conclude (positively) only if
         the matrix N (see above) is zero.
 
         """
