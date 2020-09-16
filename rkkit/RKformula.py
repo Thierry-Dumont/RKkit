@@ -366,7 +366,13 @@ class  RKformula(SageObject):
             if not t:
                 break
         return t
-    
+
+    def make_order_equations(self,order):
+        self.RTrees = RKTrees()
+        s=[]
+        for i in range(1,order+1):
+            s+=self.RTrees.make_order_equations(self.A,self.B,i)
+        return s
     @lazy_attribute
     def stability_on_real_negative_axis(self):
         """

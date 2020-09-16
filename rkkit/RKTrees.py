@@ -50,7 +50,7 @@ class  RKTrees(SageObject):
         return faclist
     def eval_sum_prod(self,A,B,formula,v):
         return  B[v[0]] * prod( [A[v[i[0]-1],v[i[1]-1]] for i in formula] )
-    def check_tree_order(self,A,B,rt):
+    def tree_order_form(self,A,B,rt):
         n = len(B)
         s = set(range(0,n))
         S = cartesian_product([s for i in range(0,rt.node_number())])
@@ -58,7 +58,9 @@ class  RKTrees(SageObject):
         f = self.tree_to_order_formula(rt)
         #
         s =  sum([self.eval_sum_prod(A,B,f,v) for v in S])
-        return s*self.gamma(rt) == 1
+        return s*self.gamma(rt) 
+    def check_tree_order(self,A,B,rt):
+        return self.tree_order_form(A,B,rt) == 1
     def check_order(self,A,B,order):
         """
         Prove that the rooted trees of order 'order' fullfill 
@@ -80,6 +82,16 @@ class  RKTrees(SageObject):
                 if not ok:
                     return False
             return True
+    def make_order_equations(self,A,B,order):
+        if order == 1:
+            return [sum(B).exactify()-1]
+        else:
+            eqlist=[]
+            for i in range(len(self.dtrees)+1,order+1):  self.expand(i)
+            for t in self.dtrees[order]:
+                tc = t.canonical_labelling()
+                eqlist.append(self.tree_order_form(A,B,rt)-1)
+            return eqlist
     def symetry_coefficient(self,rt):
         rt1 = RT(rt)
         if rt1 ==  RT([]):
