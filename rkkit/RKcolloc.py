@@ -39,9 +39,10 @@ def colloc(c,P):
     
     B = [prims[j](x = 1) - prims0[j] for j in range(0,n)]
     # exactify to improve lisibility, if possible!
-    for i in range(0,n):
-        for j in range(0,n):
-            A[i,j].exactify()
-        B[i].exactify()
+    if R is AA or R is QQbar:
+        for i in range(0,n):
+            for j in range(0,n):
+                A[i,j].exactify()
+            B[i].exactify()
     return A,B
 
