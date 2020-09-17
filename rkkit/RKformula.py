@@ -190,7 +190,7 @@ class  RKformula(SageObject):
         """
         Documentation is in the name of this method!
         """
-        return self.stability_function()*conjugate(self.stability_function)
+        return self.stability_function()*conjugate(self.stability_function())
     
     @_persistance
     def stability_function_on_im_axis(self):
@@ -330,8 +330,8 @@ class  RKformula(SageObject):
         Is the method algebraically stable ?
 
         """
-        # Remark: should better pythonize this method. 
-        if self.is_explicit() or len([s for s in self.B if s<0])!=0:
+        
+        if self.is_explicit() or any(s<0 for s in self.B):
             return False
         else:
             M = self.M_matrix()
@@ -364,7 +364,9 @@ class  RKformula(SageObject):
         the matrix N (see above) is zero.
 
         """
-        if self.M_matrix().is_zero():
+        if self.is_explicit():
+            return False
+        elif self.M_matrix().is_zero():
             return True
         else:
             return "Unknown"
@@ -400,7 +402,7 @@ class  RKformula(SageObject):
         if self.is_A_stable():
             return minus_infinity
         else:
-            p=generic_power(self.stability_function,2)-1
+            p=generic_power(self.stability_function(),2)-1
             r=[s[0] for s in sorted(p.numerator().roots(),reverse=True)
                if s[0]<0]
             if len(r)==0:
