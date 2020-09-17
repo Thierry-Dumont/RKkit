@@ -18,7 +18,7 @@ AUTHOR:
 # (at your option) any later version.
 #                  https://www.gnu.org/licenses/
 # ****************************************************************************
-#from __future__ import print_function
+
 from sage.all import *
 from sage.rings.infinity import minus_infinity
 #
@@ -26,6 +26,8 @@ from .RKTrees import *
 #
 from .RKExceptions import *
 from .RKPolutilities import *
+#
+import functools
 #
 class  RKformula(SageObject):
     r"""
@@ -71,20 +73,34 @@ class  RKformula(SageObject):
         self.D = AA
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
- 
+        # as computing properties can be slow, we will cache them here:
+        self.known_properties={}
+    def _persistance(foo):
+        """
+        Decorator: caches results of "foo" in self.known_properties
+        """
+        @functools.wraps(foo)
+        def magic( self, *args, **kwargs ):
+            if foo.__name__ in self.known_properties:
+                return self.known_properties[foo.__name__]
+            else:
+                x=foo( self,  *args, **kwargs )
+                self.known_properties[foo.__name__]=x
+                return x
+        return magic
     def _latex_(self):
         r"""
         Return the LaTeX representation of X.
         """
         return latex(self.A)+" "+latex(self.B)
-    @lazy_attribute    
+    @_persistance    
     def n_stages(self):
         """
         Return number of stages of the method.
         """
         return self.s
     
-    @lazy_attribute
+    @_persistance
     def stability_function(self):
         """
 
@@ -104,7 +120,7 @@ class  RKformula(SageObject):
         N = D + z*K
         return N.determinant()/D.determinant()
 
-    @lazy_attribute    
+    @_persistance    
     def A_is_invertible(self):
         """
 
@@ -118,7 +134,7 @@ class  RKformula(SageObject):
         """
         return self.A.is_invertible()
 
-    @lazy_attribute 
+    @_persistance 
     def is_explicit(self):
         """
         Test if the method is explicit.
@@ -130,70 +146,70 @@ class  RKformula(SageObject):
         False
 
         """
-        return self.stability_function.denominator().degree()==0
+        return self.stability_function().denominator().degree()==0
 
-    @lazy_attribute   
+    @_persistance   
     def poles_of_stability_function(self):
         """
         Compute the poles of the stability function, if any.
         """
-        if self.is_explicit:
+        if self.is_explicit():
             return []
         else:
-            RD = self.stability_function.denominator()
+            RD = self.stability_function().denominator()
             Poles,ok,nr = roots_checked(RD,QQbar)
             if not ok:
                 raise RootsException(nr,RD)
             else:
                 return Poles
-    @lazy_attribute        
+    @_persistance        
     def real_part_of_poles_all_positive(self):
         """
         Documentation is in the name of this method!
 
         Returns: (all poles have >=0 real part?) and number of poles==0.
         """
-        Poles = self.poles_of_stability_function
+        Poles = self.poles_of_stability_function()
         llp = all(s[0].real()>=0 for s in Poles)
         llzero = len([s for s in Poles if s[0].real()==0 ])
         return llp,llzero
     
-    @lazy_attribute
+    @_persistance
     def order_of_stability_function(self):
         """
         Documentation is in the name of this method!
         """
         order = 0
         z = self.R.gen()
-        while derivative(self.stability_function,z,order)(z = 0)==1: \
+        while derivative(self.stability_function(),z,order)(z = 0)==1: \
               order+= 1
         return order -1
     
-    @lazy_attribute
+    @_persistance
     def module_of_stability_function_squared(self):
         """
         Documentation is in the name of this method!
         """
-        return self.stability_function*conjugate(self.stability_function)
+        return self.stability_function()*conjugate(self.stability_function)
     
-    @lazy_attribute
+    @_persistance
     def stability_function_on_im_axis(self):
         """
         Trace of the stability function on the imaginary axis.
         """
-        R = self.stability_function
+        R = self.stability_function()
         P = AA['x']
         x = P.gen()
         return R(z = QQbar(I)*x)
 
-    @lazy_attribute
+    @_persistance
     def squared_module_of_stability_function_on_Im(self):
         """
         Square of the module of the trace of the stability function on
         the imaginary axis.
         """
         #from .RKPolutilities import realpart,impart,conj
-        RIaxe = self.stability_function_on_im_axis
+        RIaxe = self.stability_function_on_im_axis()
         RIaxeN = RIaxe.numerator()
         RIaxeD = RIaxe.denominator()
         m2N = RIaxeN*conj(RIaxeD) 
@@ -203,26 +219,26 @@ class  RKformula(SageObject):
         m2d = RIaxeD*conj(RIaxeD)
         return m2n/generic_power(m2d,2)
     
-    @lazy_attribute
+    @_persistance
     def is_module_of_stability_function_constant_on_Im(self):
         """
         Documentation is in the name of this method!
         """
-        m2 = self.squared_module_of_stability_function_on_Im
+        m2 = self.squared_module_of_stability_function_on_Im()
         x = m2.parent().gen()
         return derivative(m2,x) == 0
 
-    @lazy_attribute
+    @_persistance
     def is_module_of_stability_function_less_than_1(self):
         """
         Is the module of the trace of the stability funtion on the
         imaginary axis <1 ?
         """
-        is_const = self.is_module_of_stability_function_constant_on_Im
+        is_const = self.is_module_of_stability_function_constant_on_Im()
         if is_const:
             return True
         else:
-            m2 = self.squared_module_of_stability_function_on_Im
+            m2 = self.squared_module_of_stability_function_on_Im()
             l1,ok,n = roots_checked(m2.numerator()-m2.denominator(),QQbar)
             if not ok:
                 raise RootsException(n,m2.numerator()-m2.denominator())
@@ -240,18 +256,18 @@ class  RKformula(SageObject):
                     signes = [sign(abs(m2(x = s).real())-1) for s in points]
                     return len([x for x in signes if x >=0]) == 0
     
-    @lazy_attribute    
+    @_persistance    
     def is_A_stable(self):
         """
         Do we have an A_stable method ?
 
         See: HW II , second edition, page 43.
         """
-        return  (self.is_module_of_stability_function_constant_on_Im or \
-               self.is_module_of_stability_function_less_than_1) and  \
-               self.real_part_of_poles_all_positive[0]
+        return  (self.is_module_of_stability_function_constant_on_Im() or \
+                 self.is_module_of_stability_function_less_than_1()) and  \
+                 self.real_part_of_poles_all_positive()[0]
 
-    @lazy_attribute
+    @_persistance
     def is_stiffly_accurate(self):
         """
         Do we have a stiffly accurate method ?
@@ -260,16 +276,16 @@ class  RKformula(SageObject):
         A = self.A
         B = self.B
         s1 = self.s-1
-        return self.is_A_stable and \
+        return self.is_A_stable() and \
               (len([1 for j in range(0,self.s) if A[s1,j] != B[j]]) == 0 or \
                len([1 for i in range(0,self.s) if A[i,0] != B[0]])  == 0)
 
-    @lazy_attribute
+    @_persistance
     def R_infinite(self):
         r"""
         R(\infty). See Hairer-Wanner t.II pages 45 and 375.
         """
-        if self.A_is_invertible:
+        if self.A_is_invertible():
             AI = self.A.inverse()
             One = vector([AA(1) for i in range(0,self.s)])
             ret = AA(1)-self.B.dot_product(AI*One)
@@ -278,20 +294,20 @@ class  RKformula(SageObject):
         else:
             raise MatrixIsSingular("A")
     
-    @lazy_attribute
+    @_persistance
     def is_L_stable(self):
         """
         Do we have a L_stable method ?
         """
-        if not self.is_A_stable:
+        if not self.is_A_stable():
             return False
         else:
-            R=self.stability_function
+            R=self.stability_function()
             return R.denominator().degree() > R.numerator().degree() or \
-                self.R_infinite.is_zero()
+                self.R_infinite().is_zero()
         
 
-    @lazy_attribute
+    @_persistance
     def M_matrix(self):
         """
 
@@ -307,7 +323,7 @@ class  RKformula(SageObject):
                 M[i,j] = B[i]*A[i,j]+B[j]*A[j,i]-B[i]*B[j]
         return M
     
-    @lazy_attribute    
+    @_persistance    
     def is_algebraically_stable(self):
         """
 
@@ -315,13 +331,13 @@ class  RKformula(SageObject):
 
         """
         # Remark: should better pythonize this method. 
-        if self.is_explicit or len([s for s in self.B if s<0])!=0:
+        if self.is_explicit() or len([s for s in self.B if s<0])!=0:
             return False
         else:
-            M = self.M_matrix
+            M = self.M_matrix()
             return all(s >=0 for s in M.list())
         
-    @lazy_attribute
+    @_persistance
     def is_Symmetric(self):
         """
         All is in the title.
@@ -333,14 +349,14 @@ class  RKformula(SageObject):
         return all(self.B == Row for Row in PA.rows()) and \
             self.B == P*self.B
 
-    @lazy_attribute    
+    @_persistance    
     def conserve_quadratic_invariants(self):
         """
         Documentation is in the name of this method!
         """
-        return not self.is_explicit and self.M_matrix.is_zero()
+        return not self.is_explicit() and self.M_matrix().is_zero()
     
-    @lazy_attribute
+    @_persistance
     def is_Symplectic(self):
         """
 
@@ -348,7 +364,7 @@ class  RKformula(SageObject):
         the matrix N (see above) is zero.
 
         """
-        if self.M_matrix.is_zero():
+        if self.M_matrix().is_zero():
             return True
         else:
             return "Unknown"
@@ -373,7 +389,7 @@ class  RKformula(SageObject):
         for i in range(1,order+1):
             s+=self.RTrees.make_order_equations(self.A,self.B,i)
         return s
-    @lazy_attribute
+    @_persistance
     def stability_on_real_negative_axis(self):
         """
 
@@ -381,7 +397,7 @@ class  RKformula(SageObject):
         of stability on the real negative axis.
 
         """
-        if self.is_A_stable:
+        if self.is_A_stable():
             return minus_infinity
         else:
             p=generic_power(self.stability_function,2)-1
@@ -392,7 +408,7 @@ class  RKformula(SageObject):
             else:
                 return r[0]
  
-    @lazy_attribute
+    @_persistance
     def order(self):
         """
 
@@ -404,7 +420,7 @@ class  RKformula(SageObject):
             o+= 1
         return o
     
-    @lazy_attribute
+    @_persistance
     def order_star_function(self):
         """
         Compute the order star function. 
@@ -412,7 +428,7 @@ class  RKformula(SageObject):
         """
         x=SR.var("x")
         y=SR.var("y")
-        Rs = self.stability_function
+        Rs = self.stability_function()
         RRs=Rs.numerator().change_ring(RDF)/Rs.denominator().change_ring(RDF)
         s=RRs(x+SR(I)*y)/exp(x+SR(I)*y)
         return s.abs()
@@ -423,27 +439,27 @@ class  RKformula(SageObject):
         Compute all possible properties of the formula.
 
         """
-        self.A_is_invertible
-        self.is_explicit
-        self.stability_function
-        self.poles_of_stability_function
-        self.real_part_of_poles_all_positive
-        self.order_of_stability_function
-        self.stability_function_on_im_axis
-        self.squared_module_of_stability_function_on_Im
-        self.is_module_of_stability_function_constant_on_Im
-        self.is_module_of_stability_function_less_than_1
-        self.is_A_stable
-        self.is_stiffly_accurate
-        self.is_L_stable
-        self.is_algebraically_stable
-        self.is_Symmetric
-        self.is_Symplectic
-        self.conserve_quadratic_invariants
-        self.stability_on_real_negative_axis
-        self.stability_on_real_negative_axis
-        self.order
-        self.order_star_function
+        self.A_is_invertible()
+        self.is_explicit()
+        self.stability_function()
+        self.poles_of_stability_function()
+        self.real_part_of_poles_all_positive()
+        self.order_of_stability_function()
+        self.stability_function_on_im_axis()
+        self.squared_module_of_stability_function_on_Im()
+        self.is_module_of_stability_function_constant_on_Im()
+        self.is_module_of_stability_function_less_than_1()
+        self.is_A_stable()
+        self.is_stiffly_accurate()
+        self.is_L_stable()
+        self.is_algebraically_stable()
+        self.is_Symmetric()
+        self.is_Symplectic()
+        self.conserve_quadratic_invariants()
+        self.stability_on_real_negative_axis()
+        self.stability_on_real_negative_axis()
+        self.order()
+        self.order_star_function()
         
     def print_all_known_properties(self):
         """
@@ -452,7 +468,8 @@ class  RKformula(SageObject):
 
         """
         donotprint=["A","B","C","D","R","s","RTrees","M_matrix"]
-        D=self.__dict__
+        #D=self.__dict__
+        D=self.known_properties
         for key in D:
             if key not in donotprint:
                 print("-> ",key," :\n",D[key],"\n")
