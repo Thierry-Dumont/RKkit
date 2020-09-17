@@ -13,6 +13,8 @@ class  RKTrees(SageObject):
 
     n is the maximum depth of the rooted trees you will use (the
     built dictionary will be enlarged if necessary).
+
+    Bibliography: HW are the bokks of Hairer, Wanner and co-workers.
     """
     def __init__(self):
         self.n = 1
@@ -82,16 +84,7 @@ class  RKTrees(SageObject):
                 if not ok:
                     return False
             return True
-    # def make_order_equations(self,A,B,order):
-    #     if order == 1:
-    #         return [sum(B).exactify()-1]
-    #     else:
-    #         eqlist=[]
-    #         for i in range(len(self.dtrees)+1,order+1):  self.expand(i)
-    #         for t in self.dtrees[order]:
-    #             tc = t.canonical_labelling()
-    #             eqlist.append(self.tree_order_form(A,B,tc)-1)
-    #         return eqlist
+ 
     def symetry_coefficient(self,rt):
         rt1 = RT(rt)
         if rt1 ==  RT([]):
@@ -111,7 +104,7 @@ class  RKTrees(SageObject):
             return prod([self.symetry_coefficient(s) for s in l])*ft
     def compute_gamma(self):
         r"""
-        This returns the '\gamma' coefficients.
+        This returns the '\gamma' coefficients (see HW).
         """
         self.gamma={}
         for i in range(1,self.n+1):

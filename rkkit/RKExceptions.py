@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+Exceptions for the package rkkit.
+"""
 from sage.all import *
 #
 class DimensionsAreIncompatible(SageObject,Exception):
