@@ -18,14 +18,14 @@ AUTHOR:
 # (at your option) any later version.
 #                  https://www.gnu.org/licenses/
 # ****************************************************************************
-from __future__ import print_function
+#from __future__ import print_function
 from sage.all import *
 from sage.rings.infinity import minus_infinity
 #
-from RKTrees import *
+from .RKTrees import *
 #
-from RKExceptions import *
-from RKPolutilities import *
+from .RKExceptions import *
+from .RKPolutilities import *
 #
 class  RKformula(SageObject):
     r"""
@@ -192,7 +192,7 @@ class  RKformula(SageObject):
         Square of the module of the trace of the stability function on
         the imaginary axis.
         """
-        from RKPolutilities import realpart,impart,conj
+        #from .RKPolutilities import realpart,impart,conj
         RIaxe = self.stability_function_on_im_axis
         RIaxeN = RIaxe.numerator()
         RIaxeD = RIaxe.denominator()

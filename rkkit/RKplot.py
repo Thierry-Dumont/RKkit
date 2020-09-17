@@ -1,11 +1,11 @@
 from __future__ import print_function
 from sage.all import *
-from RKExceptions import GraphicProblem
+from .RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
 
 def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
            ncurves=1,limits=[],fill=False,type="stab"):
-    """
+    r"""
     Plot isovalues of stability function or Order star.
 
     PARAMETERS:
