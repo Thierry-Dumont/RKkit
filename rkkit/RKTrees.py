@@ -82,16 +82,16 @@ class  RKTrees(SageObject):
                 if not ok:
                     return False
             return True
-    def make_order_equations(self,A,B,order):
-        if order == 1:
-            return [sum(B).exactify()-1]
-        else:
-            eqlist=[]
-            for i in range(len(self.dtrees)+1,order+1):  self.expand(i)
-            for t in self.dtrees[order]:
-                tc = t.canonical_labelling()
-                eqlist.append(self.tree_order_form(A,B,rt)-1)
-            return eqlist
+    # def make_order_equations(self,A,B,order):
+    #     if order == 1:
+    #         return [sum(B).exactify()-1]
+    #     else:
+    #         eqlist=[]
+    #         for i in range(len(self.dtrees)+1,order+1):  self.expand(i)
+    #         for t in self.dtrees[order]:
+    #             tc = t.canonical_labelling()
+    #             eqlist.append(self.tree_order_form(A,B,tc)-1)
+    #         return eqlist
     def symetry_coefficient(self,rt):
         rt1 = RT(rt)
         if rt1 ==  RT([]):

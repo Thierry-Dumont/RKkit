@@ -58,29 +58,10 @@ and launch the notebook _Exemple1.ipynb_.
 
 #### Some cautions: ####
 
-*  The code uses Sage's [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator; this allow to compute _each_
-_property_ _only_ _once_ (as computations  can be very expensive).
+* The code uses a decorator @_persistance to avoid recomputing known properties (which is often expensive).
 
-This can be a bit disturbing:
- do *not* write:
-
-`sage: F.is_A_stable()` 
-
-but write:
-
-`sage: F.is_A_stable`
-
-as, with the @lazy_attribute decorator, refering to an attribute triggers (only once!) the corresponding method ([see here](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)).
-
-Only two methods must be called as usual, as they do not create attributes:
-
-`sage: F.compute_all_properties()`
-
-and:
-
-`sage: F.print_all_known_properties()`
-
-_Hint:_ if something does not work with brackets, try without, and vice-versa :smile:.
+A precedent version was using  Sage's
+[@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator, which could be disturbing.
 
 
 ## Gaussian formulas ##

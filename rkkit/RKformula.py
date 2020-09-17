@@ -5,7 +5,7 @@ Explore properties of Runge-Kutta methods.
 
 AUTHOR:
  
- - Thierry Dumont (2016, 2018)
+ - Thierry Dumont (2016, 2018. 2020: Python 3, _persistance decorator)
    Institut C. Jordan, Lyon, France.
 """
 
@@ -382,7 +382,7 @@ class  RKformula(SageObject):
             if not t:
                 break
         return t
-
+    @_persistance
     def make_order_equations(self,order):
         self.RTrees = RKTrees()
         s=[]

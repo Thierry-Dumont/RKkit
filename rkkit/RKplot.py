@@ -34,8 +34,8 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
         s = P(x+QQbar(I)*y)
         return s*conjugate(s)
 
-    RDroots = RKf.poles_of_stability_function
-    Rstab= RKf.stability_on_real_negative_axis
+    RDroots = RKf.poles_of_stability_function()
+    Rstab= RKf.stability_on_real_negative_axis()
 
     # try to compute limits:
     if Rstab==minus_infinity and RDroots == [] :
@@ -74,9 +74,9 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
 
     # What to plot:
     if type ==   "stab":
-        sf = lambda x,y: sf1(x,y,RKf.stability_function)
+        sf = lambda x,y: sf1(x,y,RKf.stability_function())
     elif type == "star":
-         sf = lambda x,y: RKf.order_star_function(x=x,y=y)
+         sf = lambda x,y: RKf.order_star_function()(x=x,y=y)
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
     # if ncurves == 1:
