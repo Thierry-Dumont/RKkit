@@ -2,8 +2,8 @@
 from sage.all import *
 def colloc(c,P):
     """
-    Given a list C of collocation points, and a ring R (AA), build 
-    the A and B part of the Butcher array of an associated  Runge-Kutta
+    Given a list C of collocation points in [0,1], and a ring R (actually: AA),
+    build the A and B part of the Butcher array of an associated  Runge-Kutta
     method.
 
     AUTHOR::
