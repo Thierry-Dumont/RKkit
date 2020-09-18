@@ -75,6 +75,7 @@ class  RKformula(SageObject):
         self.s = A.dimensions()[1]
         # as computing properties can be slow, we will cache them here:
         self.known_properties={}
+        
     def _persistance(foo):
         """
         Decorator: caches results of "foo" in self.known_properties
@@ -88,12 +89,13 @@ class  RKformula(SageObject):
                 self.known_properties[foo.__name__]=x
                 return x
         return magic
+    
     def _latex_(self):
         r"""
         Return the LaTeX representation of X.
         """
         return latex(self.A)+" "+latex(self.B)
-    @_persistance    
+
     def n_stages(self):
         """
         Return number of stages of the method.
@@ -162,6 +164,7 @@ class  RKformula(SageObject):
                 raise RootsException(nr,RD)
             else:
                 return Poles
+            
     @_persistance        
     def real_part_of_poles_all_positive(self):
         """
@@ -208,7 +211,6 @@ class  RKformula(SageObject):
         Square of the module of the trace of the stability function on
         the imaginary axis.
         """
-        #from .RKPolutilities import realpart,impart,conj
         RIaxe = self.stability_function_on_im_axis()
         RIaxeN = RIaxe.numerator()
         RIaxeD = RIaxe.denominator()
@@ -384,6 +386,7 @@ class  RKformula(SageObject):
             if not t:
                 break
         return t
+    
     @_persistance
     def make_order_equations(self,order):
         self.RTrees = RKTrees()
@@ -470,8 +473,7 @@ class  RKformula(SageObject):
 
         """
         donotprint=["A","B","C","D","R","s","RTrees","M_matrix"]
-        #D=self.__dict__
         D=self.known_properties
         for key in D:
             if key not in donotprint:
-                print("-> ",key," :\n",D[key],"\n")
+                print("-> ",key," : ",D[key],"\n")
