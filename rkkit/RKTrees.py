@@ -12,9 +12,9 @@ class  RKTrees(SageObject):
     sage: R= RKTrees(n)
 
     n is the maximum depth of the rooted trees you will use (the
-    built dictionary will be enlarged if necessary).
+    built dictionary will be enlarged if necessary (lazzy evaluation)).
 
-    Bibliography: HW are the bokks of Hairer, Wanner and co-workers.
+    Bibliography: HW are the books of Hairer, Wanner and co-workers.
     """
     def __init__(self):
         self.n = 1

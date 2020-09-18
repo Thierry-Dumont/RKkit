@@ -17,6 +17,7 @@ def colloc(c,P):
     sage: c = [(s[0]+1)/2 for s in R(legendre_P(n,x)).roots()]
     sage: A,B = colloc(c,R)
     """
+    
     Pb= P.base()
     x = P.gen()
     n = len(c)

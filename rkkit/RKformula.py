@@ -73,7 +73,8 @@ class  RKformula(SageObject):
         self.D = AA
         self.R =  PolynomialRing(AA, 'z')
         self.s = A.dimensions()[1]
-        # as computing properties can be slow, we will cache them here:
+        # as computing properties can be slow, we will cache them here as
+        # soon as they are computed:
         self.known_properties={}
         
     def _persistance(foo):
@@ -274,7 +275,7 @@ class  RKformula(SageObject):
         """
         Do we have a stiffly accurate method ?
         """
-        # Proposition 3.8 H-W. TII, page 45.
+        # Proposition 3.8 in H-W. TII, page 45.
         A = self.A
         B = self.B
         s1 = self.s-1
@@ -385,7 +386,7 @@ class  RKformula(SageObject):
             t = self.RTrees.check_order(self.A,self.B,i)
             if not t:
                 break
-        return t
+        return t #True iff formula is at least of order "order".
     
     @_persistance
     def make_order_equations(self,order):
