@@ -1,3 +1,4 @@
+from sage.all import *
 class Lobatto4(SageObject):
     title="Lobatto method, order 4"
     # Lobatto order 4.See Hairer Nörsett, Wanner TI, page 211.

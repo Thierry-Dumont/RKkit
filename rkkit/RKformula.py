@@ -76,7 +76,8 @@ class  RKformula(SageObject):
         # as computing properties can be slow, we will cache them here as
         # soon as they are computed:
         self.known_properties={}
-        
+
+           
     def _persistance(foo):
         """
         Decorator: caches results of "foo" in self.known_properties
