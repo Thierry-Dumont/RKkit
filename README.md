@@ -41,12 +41,17 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
 * First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of "*.sage" files. 
 
-This class must define:
+This class must derive from "RungeKutta" and  include a contructor.
+
+The constructor must:
+
+- A) define:
 
   1- The arrays A and B of the Butcher array (the C part is not necessary).
   
   2- A title
-  
+
+- B)  call the  base RungeKutta class contructor.
 
 Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
 
