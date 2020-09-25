@@ -39,7 +39,7 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
  # Using the code #
 
-* First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of the "*.sage" files. 
+* First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of the "*.sage" files in methods/
 
 This class must derive from "RungeKutta" and  include a contructor.
 
@@ -53,7 +53,7 @@ The constructor must:
 
 - B)  call the  base RungeKutta class contructor.
 
-The "*.sage" files give examples of such classes.
+The "*.sage" files in methods/ give some examples of such classes.
 
 Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
 
