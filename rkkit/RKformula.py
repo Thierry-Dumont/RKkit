@@ -83,7 +83,7 @@ class  RKformula(SageObject):
 
     def n_stages(self):
         """
-        Return number of stages of the method.
+        Return number of stages.
         """
         return self.s
     
@@ -402,7 +402,7 @@ class  RKformula(SageObject):
     def order(self):
         """
 
-        Compute the order of the method using rooted trees.
+        Compute order of the method using rooted trees.
 
         """
         o = 0
