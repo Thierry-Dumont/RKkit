@@ -39,40 +39,23 @@ class  RKformula(SageObject):
     sage: F = RKformula(A,B)
     
     """
-    def __init__(self,A,B,C = []):
+    def __init__(self,F):
         """
-        Initilalize ``self``.
+        Initilalize ``self``. F is a Runge-Kutta class.
 
         EXAMPLES::
         
-        sage: A = matrix(AA,[[5/12,-1/12],[3/4,1/4]])
-        sage: B = vector([3/4,1/4]) (or simply B = [3/4,1/4])
-        sage: F = RKformula(A,B)
+        sage: R = RK4()
+        sage: F = RKformula(R)
         """
-        # All elements of the formula must live in an exact ring:
-
-        assert all(s.parent().is_exact() for s in A.list()), \
-            "Base ring of A must be exact (like QQ, AA, QQbar,...)"
-               
-        assert all(b.parent().is_exact() for b in B), \
-            "Base ring of B elements must be exact (like QQ, AA, QQbar,...)"
-               
-        assert all(c.parent().is_exact() for c in C), \
-            "Base ring of C elements must be exact (like QQ, AA, QQbar,...)"
-        
-        self.s = A.dimensions()[0]
-        # test A,B, C dimensions compatibility:
-        if  self.s !=  A.dimensions()[1] or self.s != len(B):
-            raise DimensionsAreIncompatible(A,B,C)
-        if C != [] and len(C) != self.s:
-            raise DimensionsAreIncompatible(A,B,C)
+       
         # force coefficients to live in AA:
-        self.A = A.change_ring(AA)
-        self.B = vector([ AA(b) for b in B])
-        self.C = vector([ AA(c) for c in C])
+        self.A = F.A.change_ring(AA)
+        self.B = vector([ AA(b) for b in F.B])
+        self.C = vector([ AA(c) for c in F.C])
         self.D = AA
         self.R =  PolynomialRing(AA, 'z')
-        self.s = A.dimensions()[1]
+        self.s = self.A.dimensions()[1]
         # as computing properties can be slow, we will cache them here as
         # soon as they are computed:
         self.known_properties={}
