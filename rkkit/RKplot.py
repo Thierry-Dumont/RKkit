@@ -1,4 +1,3 @@
-#from __future__ import print_function
 from sage.all import *
 from .RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
