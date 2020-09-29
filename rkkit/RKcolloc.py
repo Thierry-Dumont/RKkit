@@ -50,7 +50,7 @@ def colloc(c,P):
     B=vector(B)
 
     def constructor(self):
-        # this will the contructor of the class return below.
+        # this will the contructor of the class returned below.
         Title="Colloc-"+str(n)
         self.A = A
         self.B = vector(B)
