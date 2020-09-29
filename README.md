@@ -71,11 +71,11 @@ A precedent version was using  Sage's
 [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator, which could be disturbing.
 
 
-## Gaussian formulas ##
+## Gaussian formulas (and other methods obtained be collocation) ##
 
 Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
 
-RKcolloc.colloc computes the Butcher arrays (A and B parts);
+RKcolloc.colloc computes the Butcher arrays and return a Runge-Kutta method class  (note that collocation points are not necessary Guassian points).
 
 See the notebook _Gaussian.ipynb._
 
