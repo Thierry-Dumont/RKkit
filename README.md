@@ -75,7 +75,7 @@ A precedent version was using  Sage's
 
 Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
 
-RKcolloc.colloc computes the Butcher arrays and return a Runge-Kutta method class  (note that collocation points are not necessary Guassian points).
+RKcolloc.colloc computes the Butcher arrays and returns a Runge-Kutta method class  (note that collocation points are not necessary Gaussian points).
 
 See the notebook _Gaussian.ipynb._
 
