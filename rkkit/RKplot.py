@@ -1,4 +1,4 @@
-from __future__ import print_function
+#from __future__ import print_function
 from sage.all import *
 from .RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
@@ -79,11 +79,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
          sf = lambda x,y: RKf.order_star_function()(x=x,y=y)
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
-    # if ncurves == 1:
-    #     withCmap =  True
-    # else:
-    #     withCmap = False
-  
+
     if title != "":
         stitle =  title
     else:
@@ -99,16 +95,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
         
     x = SR.var("x")
     y = SR.var("y")
-    # if withCmap:
-    #     c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
-    #                      contours=[0,1],
-    #                      labels=True,fill=fill, label_inline=True,
-    #                      axes=True,colorbar=True,title=stitle)
-                       
-    # else:
-    #     c = contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]), \
-    #                      contours=[-1,0,1],labels=True,label_inline=True,
-    #                      axes=True,fill=fill,colorbar=True,title=stitle)
+
     return contour_plot(sf,(x,L1[0],L1[1]), (y,L2[0],L2[1]),
                      contours = [0,1],
                      labels = True,fill = fill, label_inline = True,
