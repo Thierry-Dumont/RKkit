@@ -1,19 +1,21 @@
 from sage.all import *
 from .RKExceptions import *
 #from sage.matrix.matrix import is_Matrix
+from sage.structure.element import is_Matrix, is_Vector
 class RungeKutta(SageObject):
+    """
+    Base class for all Runge-Kutta methods.
+
+    """
     def __init__(self,A,B,Title,C=[]):
         if not A.parent().is_exact():
             raise Exception("RungeKutta: parent of A is not exact")
         if not  B.parent().is_exact():
             raise Exception("RungeKutta: parent of B is not exact")
-        # print(A.parent())
-        # if not is_Matrix(A):
-        #     print("A=",A)
-        #     #raise Exception("RungeKutta: A is not a matrix")
-        # if not is_Matrix(B):
-        #     print("B=",B)
-        #     #raise Exception("RungeKutta: A is not a matrix")
+        if not is_Matrix(A):
+            raise Exception("RungeKutta: A is not a matrix")
+        if not is_Vector(B):
+            raise Exception("RungeKutta: B is not a vector")
         if  A.dimensions()[0] != A.dimensions()[1]\
             or A.dimensions()[0] != len(B):
             raise  DimensionsAreIncompatible(A,B,C)
