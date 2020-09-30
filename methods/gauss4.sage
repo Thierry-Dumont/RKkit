@@ -2,7 +2,7 @@ from sage.all import *
 from rkkit.RKRungeKutta import *
 class Gauss4(RungeKutta):
     def __init__(self):
-        title="Gauss method, order 2."
+        title="Gauss method, 2 points, order 4."
         A=matrix(AA,[[1/4,1/4-sqrt(3)/6],[1/4+sqrt(3)/6,1/4]])
         ##
         B=vector([1/2,1/2])
