@@ -9,13 +9,13 @@ class RungeKutta(SageObject):
     """
     def __init__(self,A,B,Title,C=[]):
         if not A.parent().is_exact():
-            raise Exception("RungeKutta: parent of A is not exact")
+            raise MustBeExact("RungeKutta: parent of A is not exact")
         if not  B.parent().is_exact():
-            raise Exception("RungeKutta: parent of B is not exact")
+            raise MustBeExact("RungeKutta: parent of B is not exact")
         if not is_Matrix(A):
-            raise Exception("RungeKutta: A is not a matrix")
+            raise NotAMatrix("RungeKutta: A is not a matrix")
         if not is_Vector(B):
-            raise Exception("RungeKutta: B is not a vector")
+            raise NotAVector("RungeKutta: B is not a vector")
         if  A.dimensions()[0] != A.dimensions()[1]\
             or A.dimensions()[0] != len(B):
             raise  DimensionsAreIncompatible(A,B,C)

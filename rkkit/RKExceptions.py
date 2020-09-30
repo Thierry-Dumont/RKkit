@@ -47,4 +47,27 @@ class GraphicProblem(Exception):
         self.t = t
     def __str__(self):
         return "Graphic problem: "+self.t
-
+class MustBeExact(Exception):
+    """
+    Raised if we try to compute in a non exact set (RealField, for example).
+    """
+    def __init__(self,t):
+        self.t=t
+    def __str__(self):
+        return self.t
+class NotAMatrix(Exception):
+    """
+    Raised if we the Butcher array A is not a matrix
+    """
+    def __init__(self,t):
+        self.t=t
+    def __str__(self):
+        return self.t
+class NotAVector(Exception):
+    """
+    Raised if we the Butcher array B is not a vector
+    """
+    def __init__(self,t):
+        self.t=t
+    def __str__(self):
+        return self.t
