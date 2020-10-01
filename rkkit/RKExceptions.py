@@ -55,17 +55,9 @@ class MustBeExact(Exception):
         self.t=t
     def __str__(self):
         return self.t
-class NotAMatrix(Exception):
+class NotA(Exception):
     """
-    Raised if we the Butcher array A is not a matrix
-    """
-    def __init__(self,t):
-        self.t=t
-    def __str__(self):
-        return self.t
-class NotAVector(Exception):
-    """
-    Raised if we the Butcher array B is not a vector
+    Raised if an object is not a matrix, vector, etc...
     """
     def __init__(self,t):
         self.t=t
