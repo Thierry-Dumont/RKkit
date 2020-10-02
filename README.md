@@ -2,8 +2,6 @@
 
 # Playing with Runge-Kutta methods and SageMath. #
 
-_Beware: this is a very preliminary version!_
-
 To use the code, you must install [SageMath](http://www.sagemath.org/).
 
 The goal of this code is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
@@ -92,6 +90,8 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 
 2. _Gaussian.ipynb_:  construct and test some of the Gauss methods.
 
-3. _All properties.ipynb_: show how to compute all possible properties of a method.
+3. _AllProperties.ipynb_: show how to compute all possible properties of a method.
 
 4. _Test.ipynb_ : just testing that everything works fine on a set of formulas.
+
+5. _RadauByCollocation.ipynb_ : Radau methods are collocation methods. Play with this.
