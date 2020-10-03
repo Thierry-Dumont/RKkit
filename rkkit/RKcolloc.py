@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from sage.all import *
 from .RKRungeKutta import RungeKutta
+from .RKExceptions import *
 def colloc(c,P):
     """
     Given a list C of collocation points in [0,1], and a ring R (actually: AA),
@@ -26,7 +27,8 @@ def colloc(c,P):
     #
     for s in c:
         if s <0 or s >1:
-            raise IndexError("colloc: collocation point ",s," is out of [0,1]")
+            raise CollocPointNotGood(
+                "colloc: collocation point ",s," is out of [0,1]")
     pols=[]
     for  i in range(0,n):
         ploc=P(1)

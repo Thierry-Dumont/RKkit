@@ -63,3 +63,11 @@ class NotA(Exception):
         self.t=t
     def __str__(self):
         return self.t
+class CollocPointNotGood(Exception):
+    """
+    Raised if a collocation point is not in [0,1] 
+    """
+    def __init__(self,t):
+        self.t=t
+    def __str__(self):
+        return self.t

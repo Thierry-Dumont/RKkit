@@ -10,7 +10,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     PARAMETERS:
     ----------
 
-    RKf: the formula (instantiation of RKformula.
+    RKf: the formula (instantiation of RKformula).
 
     Enlarge: plot is done in a window around (0,0) in \mathbb{C}.
 
