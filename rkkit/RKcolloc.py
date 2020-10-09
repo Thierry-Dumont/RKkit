@@ -2,11 +2,11 @@
 from sage.all import *
 from .RKRungeKutta import RungeKutta
 from .RKExceptions import *
-def colloc(c,P):
+def colloc(c,P,title):
     """
     Given a list C of collocation points in [0,1], and a ring R (actually: AA),
     build the A and B part of the Butcher array of an associated  Runge-Kutta
-    method and return the method.
+    method and return a Runge-Kutta method class.
 
     AUTHOR::
 
@@ -53,10 +53,10 @@ def colloc(c,P):
 
     def constructor(self):
         # this will be the contructor of the class returned below.
-        Title="Colloc-"+str(n)
+        self.Title=title
         self.A = A
         self.B = vector(B)
-        RungeKutta.__init__(self,A,B,Title)
+        RungeKutta.__init__(self,A,B,self.Title)
         
     return type("Colloc"+str(len(c)),(RungeKutta,),{
         "__init__": constructor,
