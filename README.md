@@ -39,7 +39,7 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
 * First, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
 
-This class must derive from "RungeKutta" and  include a contructor.
+This class must derive from "RungeKutta" and  include a constructor.
 
 The constructor must:
 
