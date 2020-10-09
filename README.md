@@ -47,7 +47,7 @@ The constructor must:
 
   1- The arrays A and B of the Butcher array (the C part is not necessary).
   
-  2- A title
+  2- A title.
 
 - B)  call the  base RungeKutta class contructor.
 
