@@ -8,7 +8,7 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
 
 * With SageMath, it is possible  to make *exact* computations in somme usefull sets of numbers, and thus we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath); this is not a really restrictive hypothesis. But then, the result obtained are  *proofs* (if my codes and SageMath are both correct!).
 
-* To compute the order of a Runge-Kutta method, one must use the so called _rooted_ _trees_ for which we have a SageMath implementation, coded by [Florent Hivert](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/rooted_tree.html).
+* To compute the order of a Runge-Kutta method, one use the so called _rooted_ _trees_ for which we have a SageMath implementation, coded by [Florent Hivert](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/rooted_tree.html).
 
 * We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
 
