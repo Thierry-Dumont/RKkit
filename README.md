@@ -21,12 +21,12 @@ Some sage/jupyter notebooks are provided: they probably provide  the best way to
 * To learn about Ordinary Differential Equations solvers, you should read the
 _Bible_:
 
-1.    Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
+1.   Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
 2.   Solving Ordinary Differential Equations II Stiff and Differential-Algebraic
-    Problems by Hairer and Wanner 5HW),
+         Problems by Hairer and Wanner 5HW),
 3.   Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
 
-_If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in 2._  
+_If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in 1._  
 
 
 
@@ -37,7 +37,7 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
  # Using the code #
 
-* First, you must define a Runge--Kutta method. To do this you must write a (simple) python class: have a look at one of the "*.sage" files in methods/
+* First, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
 
 This class must derive from "RungeKutta" and  include a contructor.
 
@@ -61,7 +61,7 @@ Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQba
 
 and launch the notebook _Exemple1.ipynb_.
 
-#### Some cautions: ####
+#### Implementation: ####
 
 * The code uses a decorator @_persistance to avoid recomputing known properties (which is often expensive).
 
@@ -73,7 +73,7 @@ A precedent version was using  Sage's
 
 Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
 
-RKcolloc.colloc computes the Butcher arrays and returns a Runge-Kutta method class  (note that collocation points are not necessary Gaussian points).
+RKcolloc.colloc computes the Butcher arrays, given collocation points in [0,1] and returns a Runge-Kutta method class  (note that collocation points are not necessary Gaussian points).
 
 See the notebook _Gaussian.ipynb._
 
