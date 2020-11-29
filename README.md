@@ -14,7 +14,7 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
 
 I also hope to implement  B-series in the future.
 
-Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code.
+Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code (even, you can run the notebooks on binder, see below).
 
 
 
@@ -30,8 +30,6 @@ _Bible_:
 
 _If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in 1._  
 
-
-
 * If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
 for which freely available pdf files can be [downloaded here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
@@ -41,7 +39,7 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
 * First, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
 
-This class must derive from "RungeKutta" and  include a constructor.
+This class must derive from "RungeKutta" class and  include a constructor.
 
 The constructor must:
 
