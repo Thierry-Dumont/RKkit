@@ -16,6 +16,8 @@ I also hope to implement  B-series in the future.
 
 Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code.
 
+
+
 #### References: ####
 
 * To learn about Ordinary Differential Equations solvers, you should read the
@@ -60,6 +62,10 @@ Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQba
 `>sage -n jupyter`
 
 and launch the notebook _Exemple1.ipynb_.
+
+# Runing the notebooks on Binder #
+
+[just go there](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
 
 #### Implementation: ####
 
