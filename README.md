@@ -93,7 +93,7 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 5. _RadauByCollocation.ipynb_ : Radau methods are collocation methods. Play with this.
 
 
-# Runing the notebooks on Binder #
+### Runing the notebooks on Binder ###
 
 [Click me.](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
 
