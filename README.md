@@ -63,16 +63,6 @@ Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQba
 
 and launch the notebook _Exemple1.ipynb_.
 
-# Runing the notebooks on Binder #
-
-[Click me.](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
-
-#### Implementation: ####
-
-* The code uses a decorator @_persistance to avoid recomputing known properties (which is often expensive).
-
-A precedent version was using  Sage's
-[@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator, which could be disturbing.
 
 
 ## Gaussian formulas (and other methods obtained be collocation) ##
@@ -101,3 +91,15 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 4. _Test.ipynb_ : just testing that everything works fine on a set of formulas.
 
 5. _RadauByCollocation.ipynb_ : Radau methods are collocation methods. Play with this.
+
+
+# Runing the notebooks on Binder #
+
+[Click me.](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
+
+#### Implementation: ####
+
+* The code uses a decorator @_persistance to avoid recomputing known properties (which is often expensive).
+
+A precedent version was using  Sage's
+[@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator, which could be disturbing.
