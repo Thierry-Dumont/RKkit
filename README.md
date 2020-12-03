@@ -92,8 +92,10 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 
 
 ### Runing the notebooks on Binder ###
-
+Just 
 [Click me.](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
+
+otherwise, if it does not work,  read "Dockerfile".
 
 #### Implementation: ####
 
