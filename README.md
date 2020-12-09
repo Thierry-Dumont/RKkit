@@ -12,8 +12,6 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
 
 * We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
 
-I also hope to implement  B-series in the future.
-
 Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code (even, you can run the notebooks on binder, see below).
 
 
