@@ -53,7 +53,7 @@ The "*.sage" files in methods/ give some examples of such classes.
 
 Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
 
-* Then the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
+* __Then__, the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
 
 `>sage -n jupyter`
 
