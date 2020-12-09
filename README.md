@@ -35,7 +35,7 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
  # Using the code #
 
-* _First_, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
+* __First__, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
 
 This class must derive from "RungeKutta" class and  include a constructor.
 
