@@ -22,7 +22,7 @@ class  RKTrees(SageObject):
         self.expand(1)
     def expand(self,l):
         r"""
-        Extend the list of rooted trees up to depth l]
+        Extend the list of rooted trees up to depth l
         """
         for i in range(1,l+1):
             if not i in self.dtrees:
