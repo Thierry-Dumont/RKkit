@@ -12,8 +12,6 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
 
 * We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
 
-I also hope to implement  B-series in the future.
-
 Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code (even, you can run the notebooks on binder, see below).
 
 
@@ -37,7 +35,7 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
  # Using the code #
 
-* First, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
+* __First__, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
 
 This class must derive from "RungeKutta" class and  include a constructor.
 
@@ -55,7 +53,7 @@ The "*.sage" files in methods/ give some examples of such classes.
 
 Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
 
-* Then the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
+* __Then__, the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
 
 `>sage -n jupyter`
 
