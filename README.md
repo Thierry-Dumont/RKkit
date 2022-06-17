@@ -23,7 +23,7 @@ _Bible_:
 
 1.   Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
 2.   Solving Ordinary Differential Equations II Stiff and Differential-Algebraic
-         Problems by Hairer and Wanner 5HW),
+         Problems by Hairer and Wanner (HW),
 3.   Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
 
 _If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in reference 1._  
