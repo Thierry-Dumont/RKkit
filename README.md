@@ -26,7 +26,7 @@ _Bible_:
          Problems by Hairer and Wanner 5HW),
 3.   Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
 
-_If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in 1._  
+_If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in reference 1._  
 
 * If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
