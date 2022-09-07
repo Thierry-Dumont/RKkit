@@ -41,13 +41,13 @@ This class must derive from "RungeKutta" class and  include a constructor.
 
 The constructor must:
 
-- A) define:
 
-  1- The arrays A and B of the Butcher array (the C part is not necessary).
+
+  - Define the arrays A and B of the Butcher array (the C part is not necessary).
   
-  2- A title.
+  - Give a title.
 
-- B)  call the  base RungeKutta class contructor.
+ -   Call the  base RungeKutta class contructor.
 
 The "*.sage" files in methods/ give some examples of such classes.
 
