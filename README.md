@@ -49,7 +49,7 @@ The constructor must:
 
  -   Call the  base RungeKutta class contructor.
 
-The "*.sage" files in methods/ give some examples of such classes.
+Remember that the  "*.sage" files in methods/ give  examples of such classes.
 
 Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
 
