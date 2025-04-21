@@ -1,6 +1,5 @@
 from sage.all import *
 from .RKExceptions import *
-from sage.structure.element import is_Matrix, is_Vector
 class RungeKutta(SageObject):
     """
     Base class for all Runge-Kutta methods.
@@ -11,9 +10,9 @@ class RungeKutta(SageObject):
             raise MustBeExact("RungeKutta: parent of A is not exact")
         if not  B.parent().is_exact():
             raise MustBeExact("RungeKutta: parent of B is not exact")
-        if not is_Matrix(A):
+        if not isinstance(A,sage.structure.element.Matrix):
             raise NotA("RungeKutta: A is not a matrix")
-        if not is_Vector(B):
+        if not isinstance(B,sage.structure.element.Vector):
             raise NotA("RungeKutta: B is not a vector")
         if  A.dimensions()[0] != A.dimensions()[1]\
             or A.dimensions()[0] != len(B):

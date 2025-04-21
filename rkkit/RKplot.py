@@ -31,7 +31,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     """
     def sf1(x,y,P):
         s = P(x+QQbar(I)*y)
-        return s*conjugate(s)
+        return (s*conjugate(s)).real()
 
     RDroots = RKf.poles_of_stability_function()
     Rstab= RKf.stability_on_real_negative_axis()
@@ -66,6 +66,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
             
             L1 = (Lm,Lp)
             L2 = (-Enlarge*L,Enlarge*L)
+            
         #
     if limits != []:
         L1 = limits[0]
@@ -75,7 +76,7 @@ def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
     if type ==   "stab":
         sf = lambda x,y: sf1(x,y,RKf.stability_function())
     elif type == "star":
-         sf = lambda x,y: RKf.order_star_function()(x=x,y=y)
+        sf = RKf.order_star_function()
     else:
         raise AttributeError("RKplot: "+type+" :unknown plot type")
 
