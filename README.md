@@ -35,12 +35,11 @@ for which freely available pdf files can be [downloaded here](https://members.lo
 
  # Using the code #
 
-* __First__, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.sage" files in methods/.
+* __First__, you must define a Runge--Kutta method. To do this you must write a (simple) python _class_: have a look at one of the "*.py" files in methods/.
 
 This class must derive from "RungeKutta" class and  include a constructor.
 
 The constructor must:
-
 
 
   - Define the arrays A and B of the Butcher array (the C part is not necessary).
@@ -51,7 +50,10 @@ The constructor must:
 
 Remember that the  "*.sage" files in methods/ give  examples of such classes.
 
-Be carefull: The coefficients of A and B *must* be algebraic numbers (AA or QQbar) or rational numbers (QQ).
+Be carefull: The coefficients of A and B *must* be algebraic numbers
+(AA or QQbar) or rational numbers (QQ).
+
+
 
 * __Then__, the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
 
