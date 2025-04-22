@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from sage.all import *
 from .RKRungeKutta import RungeKutta
 from .RKExceptions import *
