@@ -89,3 +89,11 @@ class SDIRK5(RungeKutta):
         #
         B=vector([25/AA(24),-49/AA(48),125/AA(16),-85/AA(12),1/AA(4)])
         super().__init__(A,B,title)
+class veryBad(RungeKutta):
+    def __init__(self):
+        title="Classical Runge-Kutta 4 explicit method, ill coded"
+        # 1/2,2/6 ... will be converted into floats, which are not exact!
+        A=matrix(AA,[[0,0,0,0],[1/2,0,0,0],
+                     [0,1/2,0,0],[0,0,1,0]])
+        B=vector(AA,[1/6,2/6,2/6,1/6])
+        super().__init__(A,B,title)

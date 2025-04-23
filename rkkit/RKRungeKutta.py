@@ -26,4 +26,4 @@ class RungeKutta(SageObject):
         self.Title = Title
         self.C = C
     def __str__(self):
-        return str(self.A)+"\n"+str(self.B)
+        return self.Title+"\n"+str(self.A)+"\n"+str(self.B)
