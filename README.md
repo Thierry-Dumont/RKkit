@@ -21,39 +21,49 @@ Some sage/jupyter notebooks are provided: they probably provide  the best way to
 * To learn about Ordinary Differential Equations solvers, you should read the
 _Bible_:
 
-1.   Solving Ordinary Differential Equations I, by Hairer, Nørsett,, Wanner (HNW),
-2.   Solving Ordinary Differential Equations II Stiff and Differential-Algebraic
-         Problems by Hairer and Wanner (HW),
-3.   Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
+1-   Solving Ordinary Differential Equations I, by Hairer, Nørsett,,
+Wanner (HNW),
 
-_If you want to learn and to understand rooted trees and B-series, I recommend to start first by reading reference 3.. Being the latest book, things have become much easier to understand than in reference 1._  
+2-   Solving Ordinary Differential Equations II Stiff and Differential-Algebraic
+         Problems by Hairer and Wanner (HW),
+		 
+3-   Geometric Numerical Integration by Hairer, Lubich and Wanner (HLW).
+
+_If you want to learn and to understand rooted trees and B-series, I
+recommend to start first by reading reference 3. Being the latest
+book, things have become much easier to understand than in reference
+1._   
 
 * If you want to learn _SageMath_, you can read the book _Mathematical Computation
 with Sage_ (which now is available in French, English and German), and
-for which freely available pdf files can be [downloaded here](https://members.loria.fr/PZimmermann/sagebook/english.html) and [there](http://sagebook.gforge.inria.fr/).
+for which freely available pdf files can be [downloaded
+here](https://members.loria.fr/PZimmermann/sagebook/english.html) and
+[there](http://sagebook.gforge.inria.fr/). 
 
 
 ## _Using the code_ 
 
 * __First__, you must define a Runge--Kutta method. To do this you
   must write a (simple) python _class_: have a look at _formulas.py_
-  in methods/.
+  in methods/ to undestand what to do.
 
-	The class must derive from "RungeKutta" class and  include a constructor.
+	The class must derive from the "RungeKutta" class and  include a
+    constructor. 
 
 The constructor must:
 
 
-1.  - Define the arrays A and B of the Butcher array (the C part is not necessary).
+1-  - Define the arrays A and B of the Butcher array (the C part is generally
+    not necessary). 
   
-2.  - Give a title.
+2-  - Give a title.
 
-3. -   Call the  base RungeKutta class constructor.
+3--   Call the  base RungeKutta class constructor.
 
 Remember that the  "formula.py" file in methods/ give  examples of such classes.
 
 __Be careful:__ The coefficients of A and B *must* be algebraic numbers
-(AA or QQbar) or rational numbers (QQ). Th is not absolutely trivial
+(AA or QQbar) or rational numbers (QQ). This is not absolutely trivial
 since, in sage:
 
 2/3, for example, is directly evaluated as a float (0.66666...). This
@@ -66,6 +76,10 @@ AA(2/3) or 2/QQ(3) or 2/AA(3).
 * __Then__, the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
 
 `>sage -n jupyter`
+
+or
+
+`>sage -n jupyterlab` 
 
 and launch the notebook _Exemple1.ipynb_.
 
@@ -87,6 +101,9 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 
 `sage -n jupyter`
 
+or
+
+`sage -n jupyterlab`
 
 1. _Example.ipynb_ :  a tour of the system.
 
@@ -103,7 +120,7 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 Just 
 [Click me.](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
 
-otherwise, if it does not work,  read "Dockerfile".
+otherwise, if it does not work, have a look at  "Dockerfile".
 
 #### Implementation: ####
 
