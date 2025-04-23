@@ -53,12 +53,12 @@ here](https://members.loria.fr/PZimmermann/sagebook/english.html) and
 The constructor must:
 
 
-1-  - Define the arrays A and B of the Butcher array (the C part is generally
+1- Define the arrays A and B of the Butcher array (the C part is generally
     not necessary). 
   
-2-  - Give a title.
+2- - Give a title.
 
-3--   Call the  base RungeKutta class constructor.
+3-  Call the  base RungeKutta class constructor.
 
 Remember that the  "formula.py" file in methods/ give  examples of such classes.
 
@@ -73,7 +73,8 @@ AA(2/3) or 2/QQ(3) or 2/AA(3).
 
 
 
-* __Then__, the best is to look at the notebook _Example1.ipynb_. For this, launch sage like this:
+* __Then__, the best is to look at the notebook _Example1.ipynb_ and
+  adapt it to your needs. For this, launch sage like this:
 
 `>sage -n jupyter`
 
@@ -81,7 +82,7 @@ or
 
 `>sage -n jupyterlab` 
 
-and launch the notebook _Exemple1.ipynb_.
+and then, launch the notebook _Exemple1.ipynb_.
 
 
 
