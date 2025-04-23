@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Implement somme non implemented computations (in Sgae) for polynomials.
+Implement somme non implemented computations (in Sage) for polynomials.
 """
 from sage.all import *
 from sage.arith.power  import generic_power
