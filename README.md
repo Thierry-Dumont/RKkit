@@ -71,6 +71,7 @@ is a Python intrinsic, and cannot be avoided. So as you need to enter
 an algebraic (real) number or a rational, you _must_ write QQ(2/3) or
 AA(2/3) or 2/QQ(3) or 2/AA(3).
 
+Have a look at "GoodAndBad.ipynb": this notebook shows this more in details.
 
 
 * __Then__, the best is to look at the notebook _Example1.ipynb_ and
@@ -116,6 +117,8 @@ or
 
 5. _RadauByCollocation.ipynb_ : Radau methods are collocation methods. Play with this.
 
+6. _GoodAndBad.ipynb_ : is supposed to show what to do and what not to
+   do when coding a Runge-Kutta formula.
 
 ### Running the notebooks on Binder ###
 Just 
