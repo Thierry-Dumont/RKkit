@@ -6,7 +6,12 @@ To use the code, you must install [SageMath](http://www.sagemath.org/).
 
 The goal of this code is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
 
-* With SageMath, it is possible  to make *exact* computations in some useful sets of numbers, and thus we make the hypothesis that the coefficients of the methods live in the set of (real) algebraic numbers (called *AA* in SageMath); this is not a really restrictive hypothesis. But then, the result obtained are  *proofs* (if my codes and SageMath are both correct!).
+* With SageMath, it is possible  to make *exact* computations in some
+  useful sets of numbers, and thus we make the hypothesis that the
+  coefficients of the methods live in the set of (real) algebraic
+  numbers (called *AA* in SageMath); this is not a really restrictive
+  hypothesis. But then, the result obtained are  *proofs* (if both my
+  codes and SageMath are correct!). 
 
 * To compute the order of a Runge-Kutta method, one use the so called _rooted_ _trees_ for which we have a SageMath implementation, coded by [Florent Hivert](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/rooted_tree.html).
 
@@ -56,7 +61,7 @@ The constructor must:
 1- Define the arrays A and B of the Butcher array (the C part is generally
     not necessary). 
   
-2- - Give a title.
+2- Give a title.
 
 3-  Call the  base RungeKutta class constructor.
 
@@ -69,9 +74,11 @@ since, in sage:
 2/3, for example, is directly evaluated as a float (0.66666...). This
 is a Python intrinsic, and cannot be avoided. So as you need to enter
 an algebraic (real) number or a rational, you _must_ write QQ(2/3) or
-AA(2/3) or 2/QQ(3) or 2/AA(3).
+AA(2/3) or 2/QQ(3) or 2/AA(3) instead of 2/3. Again, have a look at
+methods/formula.py.
 
-Have a look at "GoodAndBad.ipynb": this notebook shows this more in details.
+Have a look at "GoodAndBad.ipynb": this notebook shows this more in
+details.
 
 
 * __Then__, the best is to look at the notebook _Example1.ipynb_ and
@@ -91,10 +98,15 @@ and then, launch the notebook _Exemple1.ipynb_.
 
 Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
 
-RKcolloc.colloc computes the Butcher arrays, given collocation points in [0,1] and returns a Runge-Kutta method class  (note that collocation points are not necessary Gaussian points).
+RKcolloc.colloc computes the Butcher arrays, given collocation points
+in [0,1] and returns a Runge-Kutta method class  (note that
+collocation points are not necessary Gaussian points). 
 
 See the notebook _Gaussian.ipynb._
 
+For the fun, formulas obtained by collocation at roots of Tchebychev
+polynomials are computed in "Tchebychev.ipynb" (they certainly have
+no interesting application).
 
 
 ### Notebooks ###
