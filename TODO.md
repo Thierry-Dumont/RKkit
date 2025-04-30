@@ -1,5 +1,4 @@
 
 * Implement B-series.
 
-* doctests
 
