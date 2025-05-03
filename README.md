@@ -13,13 +13,22 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
   hypothesis. But then, the result obtained are  *proofs* (if both my
   codes and SageMath are correct!). 
 
-* To compute the order of a Runge-Kutta method, one use the so called _rooted_ _trees_ for which we have a SageMath implementation, coded by [Florent Hivert](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/rooted_tree.html).
+* To compute the order of a Runge-Kutta method, one use the so called
+  _rooted_ _trees_ for which we have a SageMath implementation, coded
+  by [Florent
+  Hivert](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/rooted_tree.html). 
 
-* We also provide a function to compute the Butcher array of a method defined by collocation. A classical application is the set of Gaussian Runge-Kutta methods.
+* We also provide a function to compute the Butcher array of a method
+  defined by collocation. A classical application is the set of
+  Gaussian Runge-Kutta methods. 
 
-Some sage/jupyter notebooks are provided: they probably provide  the best way to learn and to test this code (even, you can run the notebooks on binder, see below).
+Some sage/jupyter notebooks are provided: they probably provide  the
+best way to learn and to test this code (even, you can run the
+notebooks on binder, see below). 
 
-
+Note that the cost of the computation grows very fast with tne
+number of steps of the method; also, the rooted_tree machinery in
+sage is quite slow.
 
 #### References: ####
 
