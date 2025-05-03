@@ -3,9 +3,13 @@ from .RKRungeKutta import RungeKutta
 from .RKExceptions import *
 def colloc(c,P,title):
     """
-    Given a list C of collocation points in [0,1], and a ring R (actually: AA),
-    build the A and B part of the Butcher array of an associated  Runge-Kutta
-    method and return a Runge-Kutta method class.
+    Given a list C of collocation points in [0,1], and an univariate polynomial
+    ring P (over an exact field -actually over AA-),  build the A and B part
+    of the Butcher array of an associated  Runge-Kutta method and return a
+    Runge-Kutta method class.
+
+    The "title" parameter is the name given to the generated Runge-Kurtta
+    method.
 
     AUTHOR::
 
@@ -17,7 +21,7 @@ def colloc(c,P,title):
     sage: n = 4
     sage: x = P.gen()
     sage: c = [(s[0]+1)/2 for s in R(legendre_P(n,x)).roots()]
-    sage: A,B = colloc(c,R)
+    sage: A,B = colloc(c,R,"Gauss 4")
     """
     
     Pb= P.base()
