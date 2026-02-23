@@ -1,4 +1,6 @@
-from sage.all import *
+#from sage.all import *
+from sage.rings.qqbar import AA
+from sage.structure.sage_object import SageObject
 from rkkit.RKRungeKutta import *
 class Gauss4(RungeKutta):
     def __init__(self):

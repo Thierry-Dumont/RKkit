@@ -19,8 +19,19 @@ AUTHOR:
 #                  https://www.gnu.org/licenses/
 # ****************************************************************************
 
-from sage.all import *
+#from sage.all import *
+from sage.structure.sage_object import SageObject
+from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.infinity import minus_infinity
+from sage.matrix.constructor import Matrix,matrix
+from sage.matrix.special import identity_matrix
+from sage.modules.free_module_element import vector
+from sage.rings.qqbar import AA
+from sage.calculus.functional import derivative
+from sage.rings.imaginary_unit import I
+from sage.symbolic.ring import SR
+from sage.rings.real_double import RDF
+from sage.functions.log import exp
 #
 from .RKTrees import *
 #

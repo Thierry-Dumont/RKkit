@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
-from  sage.all import *
+#from  sage.all import *
+from sage.structure.sage_object import SageObject
 from sage.combinat.rooted_tree import RootedTree as RT
 from sage.combinat.rooted_tree import RootedTrees_size as RTS
+from sage.categories.sets_cat import cartesian_product
+from sage.misc.misc_c import prod
 #
 class  RKTrees(SageObject):
     r"""
-    The rooted trees machinery.
-    
+    The rooted trees machinery.    
     EXAMPLES:
 
     sage: R= RKTrees(n)

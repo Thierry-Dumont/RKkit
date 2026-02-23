@@ -1,6 +1,7 @@
-from sage.all import *
+#from sage.all import *
 from .RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
+from sage.plot.contour_plot import contour_plot
 
 def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
            ncurves=1,limits=[],fill=False,type="stab"):

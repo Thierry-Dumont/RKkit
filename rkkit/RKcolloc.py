@@ -1,4 +1,10 @@
-from sage.all import *
+#from sage.all import *
+#from sage.rings.qqbar import AA
+from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
+from sage.matrix.constructor import Matrix,matrix
+from sage.modules.free_module_element import free_module_element,vector
+from sage.rings.qqbar import QQbar, AA
+from sage.functions.orthogonal_polys import legendre_P
 from .RKRungeKutta import RungeKutta
 from .RKExceptions import *
 def colloc(c,P,title):
@@ -12,7 +18,7 @@ def colloc(c,P,title):
     method.
 
     AUTHOR::
-
+    
     Thierry Dumont (2016, 2020).
 
     EXAMPLES::
@@ -47,7 +53,7 @@ def colloc(c,P,title):
     
     B = [prims[j](x = 1) - prims0[j] for j in range(0,n)]
     # exactify to improve lisibility, if possible!
-    if R is AA or R is QQbar:
+    if Pb is AA or Pb is QQbar:
         for i in range(0,n):
             for j in range(0,n):
                 A[i,j].exactify()
