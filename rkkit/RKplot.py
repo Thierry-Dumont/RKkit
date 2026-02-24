@@ -1,6 +1,11 @@
 #from sage.all import *
 from .RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
+from sage.symbolic.ring import SR
+from sage.rings.qqbar import QQbar
+from sage.rings.imaginary_unit import I
+from sage.functions.other import conjugate
+
 from sage.plot.contour_plot import contour_plot
 
 def RKplot(RKf,title="",Enlarge=4,TranslateX=0,
