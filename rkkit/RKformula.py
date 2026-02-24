@@ -19,7 +19,6 @@ AUTHOR:
 #                  https://www.gnu.org/licenses/
 # ****************************************************************************
 
-#from sage.all import *
 from sage.structure.sage_object import SageObject
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.infinity import minus_infinity
@@ -32,6 +31,7 @@ from sage.rings.imaginary_unit import I
 from sage.symbolic.ring import SR
 from sage.rings.real_double import RDF
 from sage.functions.log import exp
+from sage.functions.generalized import sign
 #
 from .RKTrees import *
 #

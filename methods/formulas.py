@@ -1,6 +1,8 @@
-#from sage.all import *
 from sage.rings.qqbar import AA
 from sage.structure.sage_object import SageObject
+from sage.matrix.constructor import matrix
+from sage.modules.free_module_element import vector
+from sage.misc.functional import sqrt
 from rkkit.RKRungeKutta import *
 class Gauss4(RungeKutta):
     def __init__(self):
