@@ -2,7 +2,6 @@
 """
 Exceptions for the package rkkit.
 """
-#from sage.all import *
 from sage.structure.sage_object import SageObject
 from builtins import Exception
 #

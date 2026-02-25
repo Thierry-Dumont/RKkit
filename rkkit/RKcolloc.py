@@ -1,5 +1,3 @@
-#from sage.all import *
-#from sage.rings.qqbar import AA
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.matrix.constructor import Matrix,matrix
 from sage.modules.free_module_element import free_module_element,vector

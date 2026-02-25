@@ -2,7 +2,6 @@
 """
 Implement somme non implemented computations (in Sage) for polynomials.
 """
-#from sage.all import *
 from sage.arith.power  import generic_power
 from sage.rings.qqbar import QQbar
 from sage.rings.imaginary_unit import I

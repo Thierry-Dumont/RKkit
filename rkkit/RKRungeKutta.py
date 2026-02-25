@@ -1,4 +1,3 @@
-#from sage.all import *
 from sage.structure.sage_object import SageObject
 from sage.structure.element import Matrix,Vector
 from .RKExceptions import *

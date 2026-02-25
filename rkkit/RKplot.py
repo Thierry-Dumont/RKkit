@@ -1,4 +1,3 @@
-#from sage.all import *
 from .RKExceptions import GraphicProblem
 from sage.rings.infinity import minus_infinity
 from sage.symbolic.ring import SR

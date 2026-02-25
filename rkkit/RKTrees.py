@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#from  sage.all import *
+#*
 from sage.structure.sage_object import SageObject
 from sage.combinat.rooted_tree import RootedTree as RT
 from sage.combinat.rooted_tree import RootedTrees_size as RTS
