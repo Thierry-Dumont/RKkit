@@ -20,7 +20,7 @@ AUTHOR:
 # ****************************************************************************
 
 from sage.structure.sage_object import SageObject
-from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
+#from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.infinity import minus_infinity
 from sage.matrix.constructor import Matrix,matrix
 from sage.matrix.special import identity_matrix
@@ -65,7 +65,7 @@ class  RKformula(SageObject):
         self.B = vector([ AA(b) for b in F.B])
         self.C = vector([ AA(c) for c in F.C])
         self.D = AA
-        self.R =  PolynomialRing(AA, 'z')
+        self.R = AA["z"]# PolynomialRing(AA, 'z')
         self.s = self.A.dimensions()[1]
         # as computing properties can be slow, we will cache them here as
         # soon as they are computed:
