@@ -56,6 +56,12 @@ RKkit  = [
     "rkkit/*",
     "methods/*"
     ]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test.py"]
+python_classes = ["TestRKkit"]
+python_functions = ["test*"]
+addopts = "-v"
 
 
 
