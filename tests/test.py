@@ -1,8 +1,9 @@
 #
 import pytest
-from rkkit import *
-from methods.formulas import *
-from rkkit.RKcolloc import *
+#
+from RKkit.methods.formulas import *
+from RKkit.rkkit.RKcolloc import *
+from RKkit.rkkit import *
 #
 class TestRKkit:
     """ Test computation of all known properties for a set of known
@@ -14,7 +15,6 @@ class TestRKkit:
         Bads=[]
         #
         for f in cformulas:
-    
             try:
                 F=RKformula(f)
                 F.compute_all_properties()
