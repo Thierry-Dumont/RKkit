@@ -2,7 +2,18 @@
 
 # Playing with Runge-Kutta methods and SageMath. #
 
-To use the code, you must install [SageMath](http://www.sagemath.org/).
+## Installation
+
+- (The classical method): you  install [SageMath](http://www.sagemath.org/).
+
+- (The passagemath method) : create and activate a Python
+  virtualenv. Then just do : 
+  
+  `pip install RKkit`
+  
+  and everything   necessary will be installed for you.
+  
+## Goal of the code:                        
 
 The goal of this code is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
 
