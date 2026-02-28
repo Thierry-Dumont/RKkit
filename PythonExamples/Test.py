@@ -3,21 +3,16 @@
 
 # ## Test: can we compute all  properties for all coded formulas? ##
 
-# In[12]:
 
-
-from rkkit import *
-from methods.formulas import *
-from rkkit.RKcolloc import *
-
-
-# In[13]:
-
+from RKkit.rkkit import *
+from RKkit.methods.formulas import *
+from RKkit.rkkit.RKcolloc import *
+from sage.rings.qqbar import *
+import sage.rings.qqbar
 
 cformulas=[Radau5(),Gauss4(),Radau2a(),RK4(),SDIRK5(),Lobatto4()]
 
 # ,SDIRK3()
-# In[14]:
 
 
 for formula in cformulas:
@@ -29,7 +24,6 @@ for formula in cformulas:
 
 # Try also some Gauss formulas.
 
-# In[15]:
 
 
 R = PolynomialRing(AA,"x")
@@ -45,7 +39,7 @@ for n in[1,2,3]:
 
 # ##### end #####
 
-# In[ ]:
+
 
 
 

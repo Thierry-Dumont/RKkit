@@ -15,3 +15,5 @@ Build*
 .ipynb_checkpoints
 Out*
 *.pyc
+RKkit.egg-info
+dist
