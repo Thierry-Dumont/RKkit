@@ -4,14 +4,17 @@
 
 ## Installation
 
-- (The classical method): you  install [SageMath](http://www.sagemath.org/).
-
+- (The classical method): you  install
+  [SageMath](http://www.sagemath.org/)., clone this repository. Then
+  look at th python scripts in PythonExamples/ or run the jupyter
+  notebooks of Notebooks/.
+  
 - (The passagemath method) : create and activate a Python
   virtualenv. Then just do : 
   
   `pip install RKkit`
   
-  and everything   necessary will be installed for you.
+  and everything  necessary will be installed for you.
   
 ## Goal of the code:                        
 
@@ -138,6 +141,10 @@ All are Sage/Jupyter notebooks. Launch Sage by typing:
 or
 
 `sage -n jupyterlab`
+
+if you use passagemath, you can install jupyter in the virtualenv:
+
+`pip install jupyter`
 
 1. _Example.ipynb_ :  a tour of the system.
 
