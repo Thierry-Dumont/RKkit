@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=65.0","wheel"]
+requires = ["setuptools>=65.0"]
 build-backend = "setuptools.build_meta"
 [tool.setuptools]
 packages= ["RKkit","RKkit.rkkit","RKkit.methods"]
@@ -36,10 +36,7 @@ requires-python = ">=3.10"
 dependencies = [
     "passagemath-plot",
     "passagemath-standard",
-    "passagemath-repl",
     "passagemath-flint",
-    "passagemath-environment",
-    "passagemath-symbolics",
     "passagemath-combinat"
 ]
 [project.urls]
