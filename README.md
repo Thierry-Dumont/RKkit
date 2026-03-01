@@ -5,9 +5,7 @@
 ## Installation
 
 - (The classical method): you  install
-  [SageMath](http://www.sagemath.org/)., clone this repository. Then
-  look at th python scripts in PythonExamples/ or run the jupyter
-  notebooks of Notebooks/.
+  [SageMath](http://www.sagemath.org/)., clone this repository.
   
 - (The passagemath method) : create and activate a Python
   virtualenv. Then just do : 
@@ -16,6 +14,9 @@
   
   and everything  necessary will be installed for you.
   
+  In  both cases, after installation, you can 
+  run the python scripts in PythonExamples/ or run the jupyter
+  notebooks in Notebooks/.
 ## Goal of the code:                        
 
 The goal of this code is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
@@ -37,8 +38,7 @@ The goal of this code is to verify different properties of a given Runge--Kutta 
   Gaussian Runge-Kutta methods. 
 
 Some sage/jupyter notebooks are provided: they probably provide  the
-best way to learn and to test this code (even, you can run the
-notebooks on binder, see below). 
+best way to learn and to test this code.
 
 Note that the cost of the computation grows very fast with tne
 number of steps of the method; also, the rooted_tree machinery in
@@ -113,7 +113,7 @@ or
 
 `>sage -n jupyterlab` 
 
-and then, launch the notebook _Exemple1.ipynb_.
+and then, launch the notebook _Exemple1.ipynb_from Notebooks.
 
 
 
@@ -144,7 +144,7 @@ or
 
 if you use passagemath, you can install jupyter in the virtualenv:
 
-`pip install jupyter`
+`pip install notebook` (once the vitualenv is activated).
 
 1. _Example.ipynb_ :  a tour of the system.
 
@@ -159,15 +159,11 @@ if you use passagemath, you can install jupyter in the virtualenv:
 6. _GoodAndBad.ipynb_ : is supposed to show what to do and what not to
    do when coding a Runge-Kutta formula.
 
-### Running the notebooks on Binder ###
-Just 
-[Click me.](https://mybinder.org/v2/gh/Thierry-Dumont/RKkit/315376e77071abff5ab16ab9f6ecba52a3c359e0)
-
-otherwise, if it does not work, have a look at  "Dockerfile".
 
 #### Implementation: ####
 
 * The code uses a decorator @_persistance to avoid recomputing known properties (which is often expensive).
 
 A precedent version was using  Sage's
-[@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html) decorator, which could be disturbing.
+[@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)
+decorator, which could be disturbing. 
