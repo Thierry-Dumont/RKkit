@@ -20,7 +20,6 @@ AUTHOR:
 # ****************************************************************************
 
 from sage.structure.sage_object import SageObject
-#from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.infinity import minus_infinity
 from sage.matrix.constructor import Matrix,matrix
 from sage.matrix.special import identity_matrix
