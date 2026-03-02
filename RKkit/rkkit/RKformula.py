@@ -24,7 +24,7 @@ from sage.rings.infinity import minus_infinity
 from sage.matrix.constructor import Matrix,matrix
 from sage.matrix.special import identity_matrix
 from sage.modules.free_module_element import vector
-from sage.rings.qqbar import AA
+from sage.rings.qqbar import *
 from sage.calculus.functional import derivative
 from sage.rings.imaginary_unit import I
 from sage.symbolic.ring import SR

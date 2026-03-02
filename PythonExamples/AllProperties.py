@@ -7,11 +7,9 @@
 # 
 # Let us, for axample compute "all" the properties of a Gauss formula. 
 
-
-from RKkit.rkkit import *
-from sage.rings.qqbar import *
 from sage.functions.orthogonal_polys import legendre_P
-
+from sage.rings.qqbar import *
+from RKkit.rkkit import *
 #
 R = AA["x"]
 x=R.gen()
