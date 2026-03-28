@@ -3,7 +3,13 @@
 
 # ### Gaussian formulae ###
 
-
+try:
+    # In passagemath:
+    import passagemath_flint
+except ImportError:
+    #in sage (not passagemath/sage)
+    import sage.all
+#
 from RKkit.rkkit import *
 from sage.rings.qqbar import *
 from sage.functions.orthogonal_polys import legendre_P

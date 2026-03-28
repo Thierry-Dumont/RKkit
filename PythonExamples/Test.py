@@ -2,8 +2,13 @@
 # coding: utf-8
 
 # ## Test: can we compute all  properties for all coded formulas? ##
-
-
+try:
+    # In passagemath:
+    import passagemath_flint
+except ImportError:
+    #in sage (not passagemath/sage)
+    import sage.all
+#
 from RKkit.rkkit import *
 from RKkit.methods.formulas import *
 from RKkit.rkkit.RKcolloc import *

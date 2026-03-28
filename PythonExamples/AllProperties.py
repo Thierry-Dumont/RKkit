@@ -5,10 +5,19 @@
 
 # _RKformula_ has a method  _compute_ _all_ _properties()_.
 # 
-# Let us, for axample compute "all" the properties of a Gauss formula. 
+# Let us, for axample compute "all" the properties of a Gauss formula.
 
+try:
+    # In passagemath:
+    import passagemath_flint
+except ImportError:
+    #in sage (not passagemath/sage)
+    import sage.all
+#
 from sage.functions.orthogonal_polys import legendre_P
 from sage.rings.qqbar import *
+#
+
 from RKkit.rkkit import *
 #
 R = AA["x"]
