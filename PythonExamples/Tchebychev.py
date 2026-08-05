@@ -5,13 +5,9 @@
 # 
 # Just to show that we can build methods based on collocation.
 # Here we use Tchemychev polynomials. 
-# The formulas do not present any interesting application !
-try:
-    # In passagemath:
-    import passagemath_flint
-except ImportError:
-    #in sage (not passagemath/sage)
-    import sage.all
+# The formulas does not present any interesting application !
+
+import sage.all
 #
 
 from RKkit.rkkit import *

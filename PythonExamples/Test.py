@@ -2,12 +2,8 @@
 # coding: utf-8
 
 # ## Test: can we compute all  properties for all coded formulas? ##
-try:
-    # In passagemath:
-    import passagemath_flint
-except ImportError:
-    #in sage (not passagemath/sage)
-    import sage.all
+
+import sage.all
 #
 from RKkit.rkkit import *
 from RKkit.methods.formulas import *
@@ -25,7 +21,7 @@ for formula in cformulas:
     F=RKformula(formula)
     F.compute_all_properties()
     print("* ",formula.Title,': ok.\n')
-    ccc=input("?")
+    ccc=input("type any character to continue:")
 
 # Try also some Gauss formulas.
 

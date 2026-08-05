@@ -5,12 +5,7 @@
 # 
 # Remember that we must use exact sets of number, namely (real) algebraic nubers (AA or QQbar) or rationals (QQ) when defining Runge-Kutta methods.
 
-try:
-    # In passagemath:
-    import passagemath_flint
-except ImportError:
-    #in sage (not passagemath/sage)
-    import sage.all
+import sage.all
 #
 from RKkit.rkkit import *
 from RKkit.rkkit.RKRungeKutta import *

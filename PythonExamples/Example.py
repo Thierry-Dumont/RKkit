@@ -2,12 +2,8 @@
 # coding: utf-8
 
 # # Playing with Runge-Kutta methods ##
-try:
-    # In passagemath:
-    import passagemath_flint
-except ImportError:
-    #in sage (not passagemath/sage)
-    import sage.all
+
+import sage.all
 #
 from RKkit.rkkit import *
 # Let us import somme predefined Runge-Kutta method descriptions:

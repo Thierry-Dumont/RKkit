@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # 
-try:
-    # In passagemath:
-    import passagemath_flint
-except ImportError:
-    #in sage (not passagemath/sage)
-    import sage.all
+import sage.all
 #
 from RKkit.rkkit import *
 from RKkit.methods.formulas import *

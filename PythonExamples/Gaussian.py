@@ -3,12 +3,8 @@
 
 # ### Gaussian formulae ###
 
-try:
-    # In passagemath:
-    import passagemath_flint
-except ImportError:
-    #in sage (not passagemath/sage)
-    import sage.all
+
+import sage.all
 #
 from RKkit.rkkit import *
 from sage.rings.qqbar import *
