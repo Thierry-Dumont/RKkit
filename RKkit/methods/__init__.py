@@ -1,3 +1,3 @@
-from RKkit.rkkit.RKRungeKutta import *
+from rkkit.RKRungeKutta import *
 
 __all__=["formulas"]
