@@ -13,7 +13,7 @@ from sage.functions.orthogonal_polys import legendre_P
 from sage.rings.qqbar import *
 #
 
-from RKkit.rkkit import *
+from RKkit import *
 #
 R = AA["x"]
 x=R.gen()

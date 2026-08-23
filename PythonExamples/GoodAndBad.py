@@ -7,9 +7,9 @@
 
 import sage.all
 #
-from RKkit.rkkit import *
-from RKkit.rkkit.RKRungeKutta import *
-from RKkit.methods.formulas import *
+from RKkit import *
+from RKkit.RKRungeKutta import *
+from RKkit.formulas import *
 from sage.rings.qqbar import *
 
 #  A "good" initialization (this the classical explicit RK4 mathod).

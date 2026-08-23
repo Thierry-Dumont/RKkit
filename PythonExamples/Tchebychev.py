@@ -10,7 +10,7 @@
 import sage.all
 #
 
-from RKkit.rkkit import *
+from RKkit import *
 from sage.rings.qqbar import *
 from sage.functions.orthogonal_polys import chebyshev_T
 

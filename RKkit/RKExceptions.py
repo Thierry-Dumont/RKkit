@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Exceptions for the package rkkit.
+Exceptions for the package RKkit
 """
 from sage.structure.sage_object import SageObject
 from builtins import Exception

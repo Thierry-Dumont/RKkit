@@ -5,9 +5,9 @@
 
 import sage.all
 #
-from RKkit.rkkit import *
+from RKkit import *
 # Let us import somme predefined Runge-Kutta method descriptions:
-from RKkit.methods.formulas import *
+from RKkit.formulas import *
 
 
 # Choose a formula:

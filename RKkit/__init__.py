@@ -7,4 +7,4 @@ from .RKRungeKutta import RungeKutta
 from sage.rings.qqbar import *
 from sage.rings.polynomial import laurent_polynomial_ring
 
-__all__=["RKRungeKutta","RKformula","RKplot","RKcolloc"]
+__all__=["RKRungeKutta","RKformula","RKplot","RKcolloc","formulas"]

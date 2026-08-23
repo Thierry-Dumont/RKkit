@@ -2,9 +2,9 @@
 # 
 import sage.all
 #
-from RKkit.rkkit import *
-from RKkit.methods.formulas import *
-from RKkit.rkkit.RKcolloc import *
+from RKkit import *
+from RKkit.formulas import *
+from RKkit.RKcolloc import *
 from sage.rings.qqbar import *
 from sage.calculus.functional import diff
 

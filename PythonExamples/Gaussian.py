@@ -6,7 +6,7 @@
 
 import sage.all
 #
-from RKkit.rkkit import *
+from RKkit  import *
 from sage.rings.qqbar import *
 from sage.functions.orthogonal_polys import legendre_P
 # We must compute in exact numbers, generally algebraic numbers (AA if real, QQbar else).
