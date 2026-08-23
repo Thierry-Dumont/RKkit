@@ -4,19 +4,35 @@
 
 ## Installation
 
-- (The classical method): you  install
-  [SageMath](http://www.sagemath.org/)., clone this repository.
+First, clone this repository.
+
+Then you can install RKkit in a "classical" sagemath or in passagemath.
+	
+1- With a classical sagemath
+	
+In the top directory of RKkit (where setup.py is) just do:
+
+`sage -pip install .`
+
+2- With passagemath:
+	
+Install passagemath in a virtualenv. Once it is done, activate 
+the virtualenv and, in the top directory of RKkit (where setup.py
+is) just do:
+	
+`pip install .`
+
+ 
   
-- (The passagemath method) : create and activate a Python
-  virtualenv. Then just do : 
+-In  both cases, after installation, you can 
+  run the python scripts in PythonExamples/
   
-  `pip install RKkit`
+  You can run them with sage or passagemath/sage and, il you use
+  passagemath with ipython or in a python script.
   
-  and everything  necessary will be installed for you.
-  
-  In  both cases, after installation, you can 
-  run the python scripts in PythonExamples/ or run the jupyter
-  notebooks in Notebooks/.
+  To run the jupyter
+  notebooks of Notebooks/ with passagemath/sage you need to install
+  jupyter or jupyterlab (using `pip install`).
   
 ## Goal of the code:                        
 

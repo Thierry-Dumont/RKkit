@@ -1,12 +1,12 @@
 from setuptools import setup
 setup(
     name='RKkit',
-    version='0.1.0',    
-    description='A example Python package',
+    version='0.1',    
+    description='Playeing with Runge-Kutta methods',
     url='https://github.com/shuds13/pyexample',
-    author='Stephen Hudson',
-    author_email='shudson@anl.gov',
-    license='BSD 2-clause',
+    author='Thierry Dumont',
+    author_email='tdumont@math.cnts.fr',
+    license='GNU GENERAL PUBLIC LICENSE Version 3',
     packages=['RKkit'],
     install_requires=[]
 )
