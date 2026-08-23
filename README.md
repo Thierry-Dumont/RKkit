@@ -17,6 +17,7 @@
   In  both cases, after installation, you can 
   run the python scripts in PythonExamples/ or run the jupyter
   notebooks in Notebooks/.
+  
 ## Goal of the code:                        
 
 The goal of this code is to verify different properties of a given Runge--Kutta method, defined by it's Butcher array (all the notions used here are defined in the _Bible_, see below).
