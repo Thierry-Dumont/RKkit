@@ -9,5 +9,5 @@ setup(
     license='GNU GENERAL PUBLIC LICENSE Version 3',
     packages=['RKkit'],
     install_requires=[],
-    extras_require["passagemath-standard",],
+    extras_require=["passagemath-standard",],
 )
