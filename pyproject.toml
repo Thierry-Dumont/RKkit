@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+[project]
+name='RKkit'
+version='0.1.0'
+authors = [
+  { name="Thierry Dumont", email="tdumont50@math.cnrs.fr" },
+] 
+description="Playing with Runge-Kutta methods"
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+[project.optional-dependencies]
+passagemath = ["passagemath-standard","passagemath-plot",
+                                   "passagemath-symbolics",
+                                   "passagemath-categories",
+                                   "passagemath-combinat",
+                                   "passagemath-flint",
+                                   "passagemath-environment",
+                                   "passagemath-singular",]
+[project.urls]
+Homepage = "https://github.com/Thierry-Dumont/RKkit"
+Issues = "https://github.com/Thierry-Dumont/RKkit/issues"
+ 
