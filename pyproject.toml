@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 name='RKkit'
 version='0.1.1'
 authors = [
-  { name="Thierry Dumont", email="tdumont50@math.cnrs.fr" },
+  { name="Thierry Dumont", email="tdumont@math.cnrs.fr" },
 ] 
 description="Playing with Runge-Kutta methods"
 readme = "README.md"
