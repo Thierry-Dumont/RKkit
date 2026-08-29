@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-license = "GPL-v3"
+license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
 [project.optional-dependencies]
 passagemath = ["passagemath-standard","passagemath-plot",
