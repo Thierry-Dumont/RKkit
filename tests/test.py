@@ -15,12 +15,11 @@ class TestRKkit:
         Bads=[]
         #
         for f in cformulas:
-            print(r)
             try:
-                
                 F=RKformula(f)
                 F.compute_all_properties()
             except:
+                print(f.Title)
                 Bads.append(f.Title)
         assert len(Bads) == 0
 

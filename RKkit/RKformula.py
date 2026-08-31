@@ -214,7 +214,16 @@ class  RKformula(SageObject):
         m2NI = impart(m2N)
         m2n = generic_power(m2NR,2)+generic_power(m2NI,2)
         m2d = RIaxeD*conj(RIaxeD)
-        return m2n/generic_power(m2d,2)
+
+        # strange ! sometimes (actuelly with SDIRK3), the following
+        # instruction produces a FLINT exception.
+        # Excecuting again solves the problem.
+        # A bug in FLINT ?
+        try:
+            r=m2n/generic_power(m2d,2)
+        except:
+            r=m2n/generic_power(m2d,2)
+        return r 
     
     @_persistance
     def is_module_of_stability_function_constant_on_Im(self):
