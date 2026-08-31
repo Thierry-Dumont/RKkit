@@ -17,9 +17,9 @@ class TestRKkit:
         for f in cformulas:
             try:
                 F=RKformula(f)
+                print(f.Title)
                 F.compute_all_properties()
             except:
-                print(f.Title)
                 Bads.append(f.Title)
         assert len(Bads) == 0
 
