@@ -40,6 +40,7 @@ for n in range(2,4):
     print("stiffly accurate? ",F.is_stiffly_accurate())
     print("algebraically stable?",F.is_algebraically_stable())
     print("conserve quadratic invariants?",F.conserve_quadratic_invariants())
+    print("symplectic ?",F.is_Symplectic())
     p=RKplot(F,fill=True,ncurves=2,Enlarge=1)
     p.show()
     q=RKplot(F,fill=True,ncurves=2,type="star",Enlarge=1)
