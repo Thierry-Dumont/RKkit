@@ -215,7 +215,7 @@ class  RKformula(SageObject):
         m2n = generic_power(m2NR,2)+generic_power(m2NI,2)
         m2d = RIaxeD*conj(RIaxeD)
 
-        # strange ! sometimes (actuelly with SDIRK3), the following
+        # strange ! sometimes (actually with SDIRK3), the following
         # instruction produces a FLINT exception.
         # Excecuting again solves the problem.
         # A bug in FLINT ?
