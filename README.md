@@ -86,7 +86,7 @@ here](https://members.loria.fr/PZimmermann/sagebook/english.html) and
 
 * __First__, you must define a Runge--Kutta method. To do this you
   must write a (simple) python _class_: have a look at _formulas.py_
-  in methods/ to undestand what to do.
+  in RKkit/ to better undestand what to do.
 
 	The class must derive from the "RungeKutta" class and  include a
     constructor. 
@@ -101,7 +101,7 @@ The constructor must:
 
 3-  Call the  base RungeKutta class constructor.
 
-Remember that the  "formula.py" file in methods/ give  examples of such classes.
+Remember that the  "formula.py" file in RKkit/ gives  examples of such classes.
 
 __Be careful:__ The coefficients of A and B *must* be algebraic numbers
 (AA or QQbar) or rational numbers (QQ). This is not absolutely trivial
@@ -111,7 +111,7 @@ since, in sage:
 is a Python intrinsic, and cannot be avoided. So as you need to enter
 an algebraic (real) number or a rational, you _must_ write QQ(2/3) or
 AA(2/3) or 2/QQ(3) or 2/AA(3) instead of 2/3. Again, have a look at
-methods/formula.py.
+RKkit/formula.py.
 
 Have a look at "GoodAndBad.ipynb": this notebook shows this more in
 details.
