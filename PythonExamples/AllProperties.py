@@ -7,12 +7,11 @@
 # 
 # Let us, for axample compute "all" the properties of a Gauss formula.
 
-import sage.all
 #
+import passagemath_flint
 from sage.functions.orthogonal_polys import legendre_P
 from sage.rings.qqbar import *
 #
-
 from RKkit import *
 #
 R = AA["x"]

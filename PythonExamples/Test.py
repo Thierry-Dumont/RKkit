@@ -2,14 +2,13 @@
 # coding: utf-8
 
 # ## Test: can we compute all  properties for all coded formulas? ##
-
-import sage.all
+import passagemath_flint
+from sage.rings.qqbar import *
+import sage.rings.qqbar
 #
 from RKkit import *
 from RKkit.formulas import *
 from RKkit.RKcolloc import *
-from sage.rings.qqbar import *
-import sage.rings.qqbar
 
 cformulas=[Radau5(),Gauss4(),Radau2a(),RK4(),SDIRK5(),Lobatto4()]
 

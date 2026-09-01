@@ -1,5 +1,8 @@
 #
-import pytest, sage.all
+import pytest
+import passagemath_flint
+from sage.rings.qqbar import *
+import sage.rings.qqbar
 #
 from RKkit import *
 

@@ -5,12 +5,13 @@
 # 
 # Remember that we must use exact sets of number, namely (real) algebraic nubers (AA or QQbar) or rationals (QQ) when defining Runge-Kutta methods.
 
-import sage.all
+import passagemath_flint
+from sage.rings.qqbar import *
 #
 from RKkit import *
 from RKkit.RKRungeKutta import *
 from RKkit.formulas import *
-from sage.rings.qqbar import *
+
 
 #  A "good" initialization (this the classical explicit RK4 mathod).
 #  

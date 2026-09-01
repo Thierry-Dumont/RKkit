@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # 
-import sage.all
+import passagemath_flint
 #
 from RKkit import *
 from RKkit.formulas import *

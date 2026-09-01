@@ -2,8 +2,7 @@
 # coding: utf-8
 
 # # Playing with Runge-Kutta methods ##
-
-import sage.all
+import passagemath_flint
 #
 from RKkit import *
 # Let us import somme predefined Runge-Kutta method descriptions:

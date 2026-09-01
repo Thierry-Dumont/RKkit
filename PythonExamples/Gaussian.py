@@ -2,13 +2,11 @@
 # coding: utf-8
 
 # ### Gaussian formulae ###
-
-
-import sage.all
 #
-from RKkit  import *
+import passagemath_flint
 from sage.rings.qqbar import *
 from sage.functions.orthogonal_polys import legendre_P
+from RKkit  import *
 # We must compute in exact numbers, generally algebraic numbers (AA if real, QQbar else).
 
 R = AA["x"]#PolynomialRing(AA,"x")

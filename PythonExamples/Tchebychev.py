@@ -7,12 +7,13 @@
 # Here we use Tchemychev polynomials. 
 # The formulas does not present any interesting application !
 
-import sage.all
+import passagemath_flint
+from sage.functions.orthogonal_polys import chebyshev_T
 #
 
 from RKkit import *
 from sage.rings.qqbar import *
-from sage.functions.orthogonal_polys import chebyshev_T
+
 
 # We must compute in exact numbers, generally algebraic numbers (AA if real, QQbar else).
 
