@@ -17,13 +17,12 @@ classifiers = [
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
 [project.optional-dependencies]
-passagemath = ["passagemath-standard","passagemath-plot",
+passagemath = ["passagemath-repl", "passagemath-plot",
                                    "passagemath-symbolics",
                                    "passagemath-categories",
-                                   "passagemath-combinat",
                                    "passagemath-flint",
-                                   "passagemath-environment",
-                                   "passagemath-singular",]
+                                   "passagemath-graphs",
+                                   "passagemath-pari",]
 [project.urls]
 Homepage = "https://github.com/Thierry-Dumont/RKkit"
 Issues = "https://github.com/Thierry-Dumont/RKkit/issues"
