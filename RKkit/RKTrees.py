@@ -11,14 +11,16 @@ class  RKTrees(SageObject):
     The rooted trees machinery.    
     EXAMPLES:
 
-    sage: R= RKTrees(n)
-
-    n is the maximum depth of the rooted trees you will use (the
-    built dictionary will be enlarged if necessary (lazzy evaluation)).
+    sage: from RKkit.RKTrees import RKTrees
+    sage: R= RKTrees()
 
     Bibliography: HW are the books of Hairer, Wanner and co-workers.
     """
     def __init__(self):
+        r"""
+        n is the maximum depth of the rooted trees you will use (the
+        built dictionary will be enlarged if necessary (lazzy evaluation))
+        """
         self.n = 1
         self.dtrees = {}
         self.expand(1)

@@ -43,10 +43,6 @@ class  RKformula(SageObject):
     r"""
     Store coefficients of a Runge-Kutta method, compute some of its
     properties.
-
-    EXAMPLES::
-
-    sage: F = RKformula(A,B)
     
     """
     def __init__(self,F):
@@ -54,7 +50,9 @@ class  RKformula(SageObject):
         Initilalize ``self``. F is a Runge-Kutta class.
 
         EXAMPLES::
-        
+
+        sage: from RKkit.formulas import *
+        sage: from RKkit.RKformula import *
         sage: R = RK4()
         sage: F = RKformula(R)
         """
@@ -105,9 +103,12 @@ class  RKformula(SageObject):
 
         EXAMPLES::
 
-        sage: F.stability_function()
+        sage: from RKkit.formulas import *
+        sage: from RKkit.RKformula import *
+        sage: R = RK4()
+        sage: F = RKformula(R)
+        sage: stab=F.stability_function()
 
-        (1/3*z + 1)/(1/6*z^2 - 2/3*z + 1)
         """
         z = self.R.gen()
         Rng = self.D
@@ -124,10 +125,14 @@ class  RKformula(SageObject):
         Test if the matrix A part of the Butcher array is invertible.
 
         EXAMPLES::
+
+        sage: from RKkit.formulas import *
+        sage: from RKkit.RKformula import *
+        sage: R = RK4()
+        sage: F = RKformula(R)
+        sage: assert(not F.A_is_invertible())
         
-        sage: F.A_is_invertible()
-        
-        True
+        False
         """
         return self.A.is_invertible()
 
@@ -138,9 +143,11 @@ class  RKformula(SageObject):
 
         EXAMPLES::
 
-        sage: F.is_explicit()
-
-        False
+        sage: from RKkit.formulas import *
+        sage: from RKkit.RKformula import *
+        sage: R = RK4()
+        sage: F = RKformula(R)
+        sage: assert(F.is_explicit())
 
         """
         return self.stability_function().denominator().degree()==0

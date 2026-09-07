@@ -21,11 +21,12 @@ def colloc(c,P,title):
 
     EXAMPLES::
 
+    sage: from RKkit.RKcolloc import colloc
     sage: R = PolynomialRing(AA,"x")
     sage: n = 4
-    sage: x = P.gen()
+    sage: x = R.gen()
     sage: c = [(s[0]+1)/2 for s in R(legendre_P(n,x)).roots()]
-    sage: A,B = colloc(c,R,"Gauss 4")
+    sage: C=colloc(c,R,"Gauss 4")
     """
     
     Pb= P.base()
