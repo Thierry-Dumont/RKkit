@@ -132,7 +132,7 @@ and then, launch the notebook _Exemple1.ipynb_from Notebooks.
 
 ## Gaussian formulas (and other methods obtained by collocation) ##
 
-Gausian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
+Gaussian formulae with n steps are obtained by collocation at the roots of the Legendre P polynomials of degree n, shifted from [-1,1] to [0,1].
 
 RKcolloc.colloc computes the Butcher arrays, given collocation points
 in [0,1] and returns a Runge-Kutta method class  (note that
