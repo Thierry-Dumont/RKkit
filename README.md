@@ -180,3 +180,9 @@ if you use passagemath, you can install jupyter in the virtualenv:
 A precedent version was using  Sage's
 [@lazy_attribute](http://doc.sagemath.org/html/en/reference/misc/sage/misc/lazy_attribute.html)
 decorator, which could be disturbing. 
+
+#### Note about graphics: ####
+
+When using the code with passagemath/ipython, graphics -if any- cannot
+be displayed. But in any case (using sage ou passagemath/sage) they
+can be saved in png files (see for example PythonExamples/Gaussian.py).

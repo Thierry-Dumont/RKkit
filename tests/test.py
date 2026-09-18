@@ -1,6 +1,10 @@
 #
 import pytest
-import passagemath_flint
+try:
+    import passagemath_flint
+except:
+    pass
+
 from sage.rings.qqbar import *
 import sage.rings.qqbar
 #
