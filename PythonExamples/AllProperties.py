@@ -8,7 +8,12 @@
 # Let us, for axample compute "all" the properties of a Gauss formula.
 
 #
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
+#
 from sage.functions.orthogonal_polys import legendre_P
 from sage.rings.qqbar import *
 #

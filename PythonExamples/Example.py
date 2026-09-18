@@ -2,7 +2,12 @@
 # coding: utf-8
 
 # # Playing with Runge-Kutta methods ##
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
+#
 #
 from RKkit import *
 # Let us import somme predefined Runge-Kutta method descriptions:
@@ -70,25 +75,7 @@ print(F.order())
 print(F.is_Symplectic())
 
 
-# Now, let us plot the stability domain:
 
-# In[17]:
-
-
-#@interact
-def P(WindowSize=(0.1,10,0.5),Translate=(-50,50,5)):
-    RKplot(F,fill=True,ncurves=2,Enlarge=WindowSize,TranslateX=Translate).show()
-
-
-# We can also plot the orde star (slow):
-
-
-#@interact
-def PStar(WindowSize=(0.01,10,0.5),Translate=(-50,50,5)):
-    RKplot(F,fill=True,ncurves=1,type="star",Enlarge=WindowSize,TranslateX=Translate).show()
-
-
-# In[ ]:
 
 
 

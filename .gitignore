@@ -19,3 +19,4 @@ RKkit.egg-info
 dist
 .pytest_cache
 .tox
+*.png

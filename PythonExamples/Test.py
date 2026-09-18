@@ -2,7 +2,11 @@
 # coding: utf-8
 
 # ## Test: can we compute all  properties for all coded formulas? ##
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
 from sage.rings.qqbar import *
 import sage.rings.qqbar
 #

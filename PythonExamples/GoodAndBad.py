@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## This small notebook illustrates how to create a Runge-Kutta method.
+# ## Illustrates how to create a Runge-Kutta method.
 # 
 # Remember that we must use exact sets of number, namely (real) algebraic nubers (AA or QQbar) or rationals (QQ) when defining Runge-Kutta methods.
 
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
+
 from sage.rings.qqbar import *
 #
 from RKkit import *

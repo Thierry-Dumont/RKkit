@@ -7,7 +7,12 @@
 # Here we use Tchemychev polynomials. 
 # The formulas does not present any interesting application !
 
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
+
 from sage.functions.orthogonal_polys import chebyshev_T
 #
 
@@ -40,9 +45,13 @@ for n in range(3,5):
     print("algebraically stable?",F.is_algebraically_stable())
     print("conserve quadratic invariants?",F.conserve_quadratic_invariants())
     p=RKplot(F,fill=True,ncurves=2,Enlarge=1)
+    pfile=f"{G.Title}.stability.png"
     p.show()
+    p.save(pfile)
     q=RKplot(F,fill=True,ncurves=2,type="star",Enlarge=1)
     q.show()
-
+    qfile=f"{G.Title}.starfuntion.png"
+    q.save(qfile)
+    print(f"Graphics are saved in {pfile} and {qfile}")
 
 

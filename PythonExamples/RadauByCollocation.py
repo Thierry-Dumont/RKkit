@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # 
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
 #
 from RKkit import *
 from RKkit.formulas import *

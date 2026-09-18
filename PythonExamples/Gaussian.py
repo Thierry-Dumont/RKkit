@@ -3,7 +3,12 @@
 
 # ### Gaussian formulae ###
 #
-import passagemath_flint
+try:
+    import passagemath_flint
+    print("Using passagemath")
+except:
+    print("Not using passagemath")
+#
 from sage.rings.qqbar import *
 from sage.functions.orthogonal_polys import legendre_P
 from RKkit  import *
@@ -40,7 +45,11 @@ for n in range(2,4):
     print("conserve quadratic invariants?",F.conserve_quadratic_invariants())
     print("symplectic ?",F.is_Symplectic())
     p=RKplot(F,fill=True,ncurves=2,Enlarge=1)
-    p.show()
     q=RKplot(F,fill=True,ncurves=2,type="star",Enlarge=1)
+    p.show()
     q.show()
-
+    pfile=f"{G.Title}.stability.png"
+    p.save(pfile)
+    qfile=f"{G.Title}.starfuntion.png"
+    q.save(qfile)
+    print(f"Graphics are saved in {pfile} and {qfile}")
